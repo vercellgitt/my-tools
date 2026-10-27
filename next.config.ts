@@ -1,19 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    agentFeedback: true,
-  },
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
+  output: 'export', // এটি যোগ করতে হবে স্ট্যাটিক এক্সপোর্টের জন্য
+  images: {
+    unoptimized: true, // স্ট্যাটিক সাইটের জন্য ইমেজ অপ্টিমাইজেশন বন্ধ রাখা ভালো
   },
 };
 
