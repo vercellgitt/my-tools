@@ -1,0 +1,12 @@
+.static-page {
+  width: 100%;
+}
+
+.static-page .page-content {
+  overflow-wrap: anywhere;
+}
+
+.static-page a {
+  color: #2563eb;
+  text-decoration: underline;
+}

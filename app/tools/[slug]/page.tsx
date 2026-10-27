@@ -46,11 +46,9 @@ export default async function ToolPage({ params }: Props) {
 
   return (
     <main>
-      <header className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="text-3xl font-bold">{tool.title}</h1>
-        <p className="mt-3 text-gray-600">
-          {tool.description}
-        </p>
+      <header className="container" style={{ paddingTop: 32 }}>
+        <h1>{tool.title}</h1>
+        <p>{tool.description}</p>
       </header>
 
       <ToolComponent />

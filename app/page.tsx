@@ -1,17 +1,35 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+import ToolGrid from "@/components/home/ToolGrid";
+
+export const metadata: Metadata = {
+  title: "Free Online Tools and Calculators",
+  description:
+    "Explore free online calculators, converters, and useful tools at Liebess.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function HomePage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-12">
-      <h1 className="text-3xl font-bold">Free Online Tools</h1>
+    <main>
+      <section className="container" style={{ paddingTop: 48 }}>
+        <h1
+          style={{
+            margin: 0,
+            fontSize: "clamp(30px, 5vw, 44px)",
+            lineHeight: 1.2,
+          }}
+        >
+          Free Online Tools
+        </h1>
 
-      <ul className="mt-6">
-        <li>
-          <Link href="/tools/age-calculator">
-            Age Calculator
-          </Link>
-        </li>
-      </ul>
+        <p style={{ color: "#6b7280", maxWidth: 600 }}>
+          Useful online calculators and tools for everyday tasks.
+        </p>
+      </section>
+
+      <ToolGrid />
     </main>
   );
 }
