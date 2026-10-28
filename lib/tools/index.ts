@@ -1,9 +1,22 @@
-import ageCalculator from "./age-calculator";
+import { ageCalculator } from "./age-calculator";
+import { emiCalculator } from "./emi-calculator";
+import { imageToPdf } from "./image-to-pdf";
 
-export const tools = [
-  ageCalculator,
-];
+
+
+// নতুন টুল যোগ করলে এখানে import করবে:
+// import { bmiCalculator } from "./bmi-calculator";
+
+export const toolsRegistry = {
+"age-calculator": ageCalculator,
+"emi-calculator": emiCalculator,
+"image-to-pdf": imageToPdf,
+
+
+
+// "bmi-calculator": bmiCalculator,
+};
 
 export function getTool(slug: string) {
-  return tools.find((tool) => tool.slug === slug);
+return toolsRegistry[slug as keyof typeof toolsRegistry];
 }

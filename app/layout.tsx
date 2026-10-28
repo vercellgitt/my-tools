@@ -5,13 +5,17 @@ import "./../components/layout/Base.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://liebess.com"),
+
   title: {
     default: "Liebess - Free Online Tools",
     template: "%s | Liebess",
   },
+
   description:
     "Use free online calculators and helpful tools with Liebess.",
+
   applicationName: "Liebess",
+
   robots: {
     index: true,
     follow: true,
