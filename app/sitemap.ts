@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
 
     ...tools.map((tool) => ({
-      url: `${baseUrl}/tools/${tool.slug}`,
+      url: `${baseUrl}/${tool.slug}`,
       lastModified: new Date(),
     })),
   ];
