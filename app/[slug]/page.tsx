@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import { toolsRegistry } from "@/lib/tools";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -20,7 +21,8 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
 
-  const tool = toolsRegistry[slug as keyof typeof toolsRegistry];
+  const tool =
+    toolsRegistry[slug as keyof typeof toolsRegistry];
 
   if (!tool) {
     return {
@@ -30,31 +32,24 @@ export async function generateMetadata({
     };
   }
 
-  // প্রতিটি টুলের নির্ধারিত Title অপরিবর্তিত থাকবে।
   const title = tool.title;
-
-  // Description-এ অন্য কোনো ক্যালকুলেটরের নাম যুক্ত হবে না।
   const description = tool.description;
+  const keywords = "keywords" in tool ? tool.keywords : undefined;
 
   const url = `https://liebess.com/${slug}`;
 
   return {
     metadataBase: new URL("https://liebess.com"),
-
     applicationName: "Liebess",
 
-    // absolute ব্যবহারের কারণে RootLayout-এর title.template
-    // এই Title-এর সঙ্গে অতিরিক্ত কিছু যুক্ত করতে পারবে না।
     title: {
       absolute: title,
     },
 
     description,
-
-    keywords: tool.keywords,
+    keywords,
 
     authors: [{ name: "Liebess" }],
-
     publisher: "Liebess",
 
     alternates: {
@@ -88,7 +83,8 @@ export default async function ToolPage({
 }: PageProps) {
   const { slug } = await params;
 
-  const tool = toolsRegistry[slug as keyof typeof toolsRegistry];
+  const tool =
+    toolsRegistry[slug as keyof typeof toolsRegistry];
 
   if (!tool) {
     notFound();
@@ -101,6 +97,17 @@ export default async function ToolPage({
       </div>
     ),
   });
+
+  if ("receiveSlug" in tool && tool.receiveSlug === true) {
+    const SlugComponent =
+      ToolComponent as ComponentType<{ slug: string }>;
+
+    return (
+      <main>
+        <SlugComponent slug={slug} />
+      </main>
+    );
+  }
 
   return (
     <main>

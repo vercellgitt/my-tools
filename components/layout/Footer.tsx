@@ -5,10 +5,6 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-inner container">
-        <Link href="/" className="footer-logo">
-          liebess.com
-        </Link>
-
         <nav className="footer-links" aria-label="Footer navigation">
           <Link href="/about-us">About Us</Link>
           <Link href="/contact-us">Contact Us</Link>

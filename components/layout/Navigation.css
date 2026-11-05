@@ -1,8 +1,10 @@
 .site-header {
   position: relative;
   z-index: 50;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  /* পুরো হেডারের জন্য একটি আকর্ষণীয় হালকা গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড */
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 2%);
 }
 
 .navigation {
@@ -15,7 +17,7 @@
 }
 
 .site-logo {
-  color: #111827;
+  color: #0f172a;
   font-size: 25px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -28,17 +30,29 @@
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 12px; /* মেনুগুলোর মাঝের দূরত্ব একটু কমানো হয়েছে যাতে দেখতে সুন্দর লাগে */
 }
 
+/* প্রতিটি ডেস্কটপ মেনু আইটেমের জন্য আলাদা ব্যাকগ্রাউন্ড ও স্টাইল */
 .desktop-nav a {
-  color: #374151;
+  color: #334155;
   font-size: 14px;
   font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #ffffff; /* প্রতিটা মেনুর নিজস্ব ব্যাকগ্রাউন্ড */
+  border: 1px solid #e2e8f0;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 2%);
 }
 
+/* হোভার করলে প্রতিটা মেনুর ব্যাকগ্রাউন্ড ও কালার আকর্ষণীয়ভাবে পরিবর্তন হবে */
 .desktop-nav a:hover {
-  color: #2563eb;
+  background: #eff6ff; /* হোভার করলে হালকা নীল ব্যাকগ্রাউন্ড */
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+  transform: translateY(-2px); /* হালকা উপরে উঠবে */
+  box-shadow: 0 4px 12px rgb(37 99 235 / 10%);
 }
 
 .mobile-menu-button,
@@ -61,14 +75,20 @@
     height: 42px;
     align-items: center;
     justify-content: center;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #e2e8f0;
     border-radius: 10px;
     background: #ffffff;
-    color: #111827;
+    color: #0f172a;
     font-size: 30px;
     line-height: 1;
+    transition: background 0.2s;
   }
 
+  .mobile-menu-button:hover {
+    background: #f1f5f9;
+  }
+
+  /* মোবাইল মেনু ড্রপডাউন বক্স */
   .mobile-nav {
     position: absolute;
     top: calc(100% + 1px);
@@ -76,23 +96,30 @@
     left: 0;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    padding: 8px;
-    border: 1px solid #e5e7eb;
-    border-radius: 0 0 12px 12px;
-    background: #ffffff;
-    box-shadow: 0 12px 24px rgb(0 0 0 / 8%);
-  }
-
-  .mobile-nav a {
+    gap: 6px;
     padding: 12px;
-    border-radius: 7px;
-    color: #374151;
-    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    border-radius: 0 0 16px 16px;
+    background: #ffffff;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 8%);
   }
 
+  /* মোবাইল মেনুর প্রতিটা লিংকের আলাদা ব্যাকগ্রাউন্ড */
+  .mobile-nav a {
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #f8fafc; /* প্রতিটা মোবাইল মেনু আইটেমের ব্যাকগ্রাউন্ড */
+    border: 1px solid #f1f5f9;
+    color: #334155;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  /* মোবাইল মেনুতে হোভার বা ট্যাপ ইফেক্ট */
   .mobile-nav a:hover {
-    background: #f3f4f6;
-    color: #2563eb;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #dbeafe;
+    padding-left: 20px; /* হোভার করলে একটু ডানে সরে যাবে */
   }
 }

@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { translations, Language } from "./i18n";
+import { translations, Language, AgeCalcDictionary } from "./i18n";
 import "./age-calculator.css";
 
 export default function AgeCalculator() {
   const [lang, setLang] = useState<Language>("en");
-  const t = translations[lang] || translations.en;
+  const t: AgeCalcDictionary = (translations[lang] as AgeCalcDictionary) || translations.en;
 
   const [birthDate, setBirthDate] = useState("");
   const [calculateDate, setCalculateDate] = useState("");
@@ -69,7 +69,7 @@ export default function AgeCalculator() {
   }
 
   function formatDate(date: Date) {
-    return date.toLocaleDateString(lang === "ar" ? "ar-SA" : lang === "de" ? "de-DE" : lang === "es" ? "es-ES" : lang === "fr" ? "fr-FR" : lang === "it" ? "it-IT" : lang === "ja" ? "ja-JP" : lang === "pt" ? "pt-PT" : "en-US", {
+    return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -224,7 +224,6 @@ export default function AgeCalculator() {
     setProgressText(`${bday.progress.toFixed(1)}%`);
   }
 
-  // Automatic calculation trigger on input change
   useEffect(() => {
     if (!birthDate || !calculateDate) {
       if (liveTimerRef.current) {
@@ -238,18 +237,9 @@ export default function AgeCalculator() {
     const bDate = parseDate(birthDate);
     const cDate = parseDate(calculateDate);
 
-    if (!bDate) {
-      showError(t.errors.selectBirthDate);
-      return;
-    }
-    if (!cDate) {
-      showError(t.errors.selectCalcDate);
-      return;
-    }
-    if (bDate > cDate) {
-      showError(t.errors.invalidRange);
-      return;
-    }
+    if (!bDate) { showError(t.errors.selectBirthDate); return; }
+    if (!cDate) { showError(t.errors.selectCalcDate); return; }
+    if (bDate > cDate) { showError(t.errors.invalidRange); return; }
 
     setHasCalculated(true);
     setBirthDay(bDate.toLocaleDateString("en-US", { weekday: "long" }));
@@ -333,7 +323,7 @@ export default function AgeCalculator() {
     <div className="age-calc-wrapper">
       <div className="age-calc-container">
         
-        {/* Language Selector Dropdown Bar (Centered) */}
+        {/* 24 Languages Dropdown Selector (Centered) */}
         <div className="age-lang-selector-bar" style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
           <select 
             value={lang} 
@@ -342,17 +332,32 @@ export default function AgeCalculator() {
             aria-label="Select Language"
           >
             <option value="en">English (EN)</option>
-            <option value="es">Español (ES)</option>
-            <option value="fr">Français (FR)</option>
             <option value="de">Deutsch (DE)</option>
+            <option value="fr">Français (FR)</option>
             <option value="it">Italiano (IT)</option>
-            <option value="pt">Português (PT)</option>
+            <option value="da">Dansk (DA)</option>
+            <option value="no">Norsk (NO)</option>
+            <option value="ga">Gaeilge (GA)</option>
+            <option value="lb">Lëtzebuergesch (LB)</option>
+            <option value="fi">Suomi (FI)</option>
+            <option value="sv">Svenska (SV)</option>
+            <option value="nl">Nederlands (NL)</option>
+            <option value="is">Íslenska (IS)</option>
+            <option value="bn">বাংলা (BN)</option>
             <option value="ar">العربية (AR)</option>
+            <option value="es">Español (ES)</option>
+            <option value="pt">Português (PT)</option>
+            <option value="hi">हिन्दी (HI)</option>
             <option value="ja">日本語 (JA)</option>
+            <option value="ru">Русский (RU)</option>
+            <option value="pl">Polski (PL)</option>
+            <option value="tr">Türkçe (TR)</option>
+            <option value="fa">فارسی (FA)</option>
+            <option value="ko">한국어 (KO)</option>
+            <option value="id">Indonesian (ID)</option>
           </select>
         </div>
 
-        {/* Translated Header Section */}
         <header className="age-calc-header">
           <h1>{t.title}</h1>
           <p>{t.description}</p>
@@ -389,7 +394,6 @@ export default function AgeCalculator() {
               {errorMessage}
             </div>
 
-            {/* Calculate Button removed as requested; Reset button kept */}
             <div className="age-calc-action-row" style={{ marginTop: "16px" }}>
               <button onClick={handleReset} className="age-calc-btn age-calc-btn-secondary" style={{ width: "100%" }}>
                 {t.resetBtn}
@@ -545,7 +549,6 @@ export default function AgeCalculator() {
           </section>
         </main>
 
-        {/* Toggleable & Fully Translated FAQ Section */}
         <section className="age-calc-faq-section" style={{ marginTop: "24px", padding: "20px", background: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "14px" }}>
           <h2 style={{ fontSize: "18px", fontWeight: "800", marginBottom: "16px", color: "#111827" }}>{t.faqTitle}</h2>
           {t.faqs.map((faq, index) => {

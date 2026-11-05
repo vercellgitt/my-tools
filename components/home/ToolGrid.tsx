@@ -6,7 +6,7 @@ const popularTools = [
 {
 name: "Age Calculator",
 description: "Calculate your exact age in years, months, and days.",
-slug: "age-calculator",
+slug: "online-age-calculator-age-calculator-online",
 category: "Everyday",
 },
 {
@@ -16,9 +16,9 @@ slug: "bmi-calculator",
 category: "Health",
 },
 {
-name: "EMI Calculator",
-description: "Estimate your monthly loan payments.",
-slug: "emi-calculator",
+name: "Calculator",
+description: "Estimate your monthly payments.",
+slug: "calculator",
 category: "Finance",
 },
 {
@@ -28,16 +28,16 @@ slug: "mortgage-calculator",
 category: "Finance",
 },
 {
-name: "Percentage Calculator",
-description: "Calculate percentages quickly and easily.",
-slug: "percentage-calculator",
-category: "Math",
+name: "Pdf To Image",
+description: "Extract your Pdf To Image Converter",
+slug: "pdf-to-image",
+category: "Utilities",
 },
 {
 name: "Image To Pdf",
 description: "Convert Your Images Jpg Png Webp To PDF .",
 slug: "image-to-pdf",
-category: "Everyday",
+category: "Utilities",
 },
 {
 name: "Time Calculator",

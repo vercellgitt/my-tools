@@ -25,9 +25,9 @@ export default function Navigation() {
 
         <div className="desktop-nav">
           <Link href="/">Home</Link>
-          <Link href="/#popular-tools">Popular Tools</Link>
-          <Link href="/about-us">About Us</Link>
-          <Link href="/contact-us">Contact Us</Link>
+          <Link href="/#popular-tools">Finance Calcouator</Link>
+          <Link href="/about-us">Health Calculator</Link>
+          <Link href="/contact-us">Pdf-Image</Link>
         </div>
 
         <button
@@ -51,15 +51,15 @@ export default function Navigation() {
             </Link>
 
             <Link href="/#popular-tools" onClick={closeMenu}>
-              Popular Tools
+             Finance Calcouator
             </Link>
 
             <Link href="/about-us" onClick={closeMenu}>
-              About Us
+              Health Calculator
             </Link>
 
             <Link href="/contact-us" onClick={closeMenu}>
-              Contact Us
+              Pdf-Image
             </Link>
           </div>
         )}

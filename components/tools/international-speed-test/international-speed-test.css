@@ -1,0 +1,345 @@
+:root {
+    --primary: #3b82f6;
+    --dark: #0f172a;
+}
+
+.ist-wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.ist-wrapper {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px 0 40px;
+    width: 100%;
+}
+
+.ist-container {
+    width: 100%;
+    max-width: 950px;
+    padding: 0 12px;
+    margin: 0 auto;
+}
+
+/* Loading Overlay */
+.ist-loading-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.ist-loader-box { width: 100%; max-width: 400px; }
+.ist-loader-title { font-size: 18px; font-weight: 600; color: #38bdf8; margin-bottom: 20px; }
+.ist-progress-track {
+    width: 100%; height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px; overflow: hidden;
+}
+.ist-progress-fill {
+    width: 0%; height: 100%;
+    background: linear-gradient(90deg, #0ea5e9, #6366f1);
+    border-radius: 10px;
+    transition: width 0.05s linear;
+}
+.ist-progress-percentage {
+    font-size: 32px; font-weight: 700; color: #fff; margin-top: 15px;
+}
+
+/* Speed Test Card */
+.ist-speed-test-container {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 22px 16px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ist-subtitle { font-size: 12px; color: #94a3b8; margin-bottom: 16px; }
+
+.ist-gauge-container {
+    position: relative; width: 150px; height: 150px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: conic-gradient(#38bdf8 0deg, #334155 0deg);
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 0 20px rgba(56,189,248,0.2);
+}
+.ist-gauge-container::before {
+    content: ''; position: absolute;
+    width: 124px; height: 124px;
+    background: #1e293b; border-radius: 50%;
+}
+.ist-speed-dial { position: relative; z-index: 2; }
+.ist-speed-value { font-size: 28px; font-weight: 700; color: #fff; }
+.ist-speed-unit { display: block; font-size: 11px; color: #38bdf8; font-weight: 600; text-transform: uppercase; }
+.ist-status-text { position: relative; z-index: 2; font-size: 11px; color: #cbd5e1; margin-top: 4px; }
+
+.ist-metrics-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 8px; margin-bottom: 16px;
+}
+.ist-metric-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 12px 6px; border-radius: 12px; text-align: center;
+}
+.ist-metric-card h3 { font-size: 10px; color: #94a3b8; font-weight: 500; margin-bottom: 3px; text-transform: uppercase; }
+.ist-metric-card p { font-size: 13px; font-weight: 600; color: #f1f5f9; }
+.ist-metric-card small { font-size: 9px; color: #64748b; }
+
+.ist-start-btn {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    color: white; border: none; width: 100%;
+    padding: 13px; font-size: 15px; font-weight: 600;
+    border-radius: 12px; cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+}
+.ist-start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
+}
+.ist-start-btn:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+/* IP Card */
+.ist-ip-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.8rem 1.4rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.ist-status-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 14px; background: #1e2937;
+    border-radius: 9999px; font-size: 0.85rem;
+    color: #cbd5e1; margin-bottom: 0.8rem;
+}
+
+.ist-ip-card h2 {
+    font-size: 1.5rem; font-weight: 700;
+    background: linear-gradient(to right, #60a5fa, #a5b4fc);
+    background-clip: text; /* স্ট্যান্ডার্ড প্রপার্টি */
+    -webkit-background-clip: text; /* ব্রাউজার কম্প্যাটিবিলিটির জন্য */
+    -webkit-text-fill-color: transparent;
+    margin: 0.6rem 0 0.8rem;
+}
+
+.ist-ip-info { margin: 1rem 0; text-align: left; max-width: 520px; margin-left: auto; margin-right: auto; }
+.ist-ip-row { margin-bottom: 0.9rem; }
+.ist-ip-label { color: #94a3b8; font-size: 0.9rem; }
+.ist-ipv4 { font-size: 1.7rem; font-weight: 700; color: #60a5fa; word-break: break-all; }
+.ist-ipv6 { font-size: 1.15rem; color: #a78bfa; word-break: break-all; }
+
+/* Warning + Refresh */
+.ist-location-warning {
+    margin-top: -8px;
+    margin-bottom: 18px;
+    padding: 10px 14px;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: none;
+    text-align: center;
+}
+
+.ist-action-buttons {
+    display: none;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: -8px;
+    margin-bottom: 18px;
+}
+
+.ist-btn-refresh {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.ist-btn-refresh:hover {
+    background: #1d4ed8;
+    transform: scale(1.03);
+}
+
+/* Details Grid */
+.ist-grid {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.ist-info-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 1.4rem;
+    transition: all 0.3s ease;
+}
+.ist-info-card:hover {
+    transform: translateY(-3px);
+    border-color: #60a5fa;
+    box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.2);
+}
+
+.ist-card-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 1rem; color: #94a3b8; font-weight: 500;
+}
+.ist-card-value {
+    font-size: 1.15rem; font-weight: 600; color: #e2e8f0;
+    word-break: break-word;
+}
+
+/* Map Section */
+.ist-map-section {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    display: none;
+}
+.ist-map-header {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; margin-bottom: 12px;
+}
+.ist-map-header h3 {
+    font-size: 1.25rem; color: #38bdf8; font-weight: 600;
+}
+.ist-coords { font-size: 0.9rem; color: #94a3b8; }
+.ist-map-container {
+    height: 380px; border-radius: 16px; overflow: hidden;
+    border: 1px solid #334155;
+}
+.ist-map-div { height: 100%; width: 100%; }
+
+/* SEO Content & Accordion FAQ Section */
+.seo-content-section {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.8rem 1.5rem;
+    margin-top: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    color: #e2e8f0;
+    text-align: left;
+}
+
+/* Uniform Font Size Rule for H1, H2, H3, H4 */
+.seo-content-section h1,
+.seo-content-section h2,
+.seo-content-section h3,
+.seo-content-section h4 {
+    font-size: 1.25rem !important;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 12px;
+}
+
+.seo-content-section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+.faq-container {
+    margin-top: 20px;
+}
+
+.faq-item {
+    border: 1px solid #334155;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background: rgba(15, 23, 42, 0.6);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 14px 18px;
+    background: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    color: #f1f5f9;
+}
+
+/* FAQ headings set to uniform size */
+.faq-question h2,
+.faq-question h3,
+.faq-question h4 {
+    font-size: 1.25rem !important;
+    margin: 0;
+    color: #f1f5f9;
+}
+
+.faq-arrow {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    color: #38bdf8;
+}
+
+.faq-arrow.open {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 18px 14px 18px;
+    color: #94a3b8;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    display: none;
+}
+
+.faq-answer.open {
+    display: block;
+    padding-top: 10px;
+}
