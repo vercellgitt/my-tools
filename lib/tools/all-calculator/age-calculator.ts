@@ -1,7 +1,7 @@
 export const ageCalculator = {
   slug: "online-age-calculator-age-calculator-online",
 
-  title: "Age Calculator – Calculate Your Exact Age Online",
+  title: "Age Calculator – Calculate Your Exact Age Online Best Tools",
 
   description:
     "Use our free age calculator to calculate your exact age in years, months, and days. Find your age by date of birth and check your chronological age online.",

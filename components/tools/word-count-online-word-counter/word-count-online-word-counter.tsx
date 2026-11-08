@@ -17,15 +17,13 @@ export default function WordCountOnlineWordCounter() {
   const [charsNo, setCharsNo] = useState(0);
   const [readTime, setReadTime] = useState("0 min");
   const [speakTime, setSpeakTime] = useState("0 min");
-  
   const [swInput, setSwInput] = useState("");
   const [swCount, setSwCount] = useState(0);
   const [caseSens, setCaseSens] = useState(false);
   const [wholeWord, setWholeWord] = useState(true);
   const [partialMatch, setPartialMatch] = useState(false);
-  const [kwEntries, setKwEntries] = useState<[string, number][]>([])
+  const [kwEntries, setKwEntries] = useState<[string, number][]>([]);
   const [totalForKw, setTotalForKw] = useState(0);
-
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const taRef = useRef<HTMLTextAreaElement>(null);
@@ -49,11 +47,13 @@ export default function WordCountOnlineWordCounter() {
       const sec = Math.round(minutes * 60);
       return sec + " sec";
     }
+
     if (minutes < 60) {
       const m = Math.floor(minutes);
       const s = Math.round((minutes - m) * 60);
       return s > 0 ? m + " min " + s + " sec" : m + " min";
     }
+
     const h = Math.floor(minutes / 60);
     const m = Math.round(minutes % 60);
     return h + " hr " + m + " min";
@@ -64,18 +64,22 @@ export default function WordCountOnlineWordCounter() {
 
     const linesArr = text.split("\n");
     let numStr = "";
+
     for (let i = 1; i <= linesArr.length; i++) {
       numStr += i + "\n";
     }
+
     setLineNumbers(numStr);
     setLinesCount(text === "" ? 0 : linesArr.length);
 
     const words = getWords(text);
     const total = words.length;
+
     setTotalWords(total);
     setTotalForKw(total);
 
     const freq: Record<string, number> = {};
+
     words.forEach((w) => {
       const key = w.toLowerCase();
       freq[key] = (freq[key] || 0) + 1;
@@ -85,24 +89,39 @@ export default function WordCountOnlineWordCounter() {
     setUniqueWords(uniqueKeys);
 
     let rep = 0;
+
     Object.values(freq).forEach((c) => {
       if (c > 1) rep += c;
     });
-    setRepeatedWords(rep);
 
+    setRepeatedWords(rep);
     setChars(text.length);
     setCharsNo(text.replace(/\s/g, "").length);
 
-    const sentMatch = text.trim() === "" ? 0 : (text.match(/[^.!?…]+[.!?…]+|[^.!?…]+$/g) || []).filter((s) => s.trim()).length;
+    const sentMatch =
+      text.trim() === ""
+        ? 0
+        : (text.match(/[^.!?…]+[.!?…]+|[^.!?…]+$/g) || []).filter(
+            (s) => s.trim()
+          ).length;
+
     setSentences(sentMatch);
 
-    const parasMatch = text.trim() === "" ? 0 : text.split(/\n\s*\n/).filter((p) => p.trim()).length || (text.trim() ? 1 : 0);
+    const parasMatch =
+      text.trim() === ""
+        ? 0
+        : text.split(/\n\s*\n/).filter((p) => p.trim()).length ||
+          (text.trim() ? 1 : 0);
+
     setParagraphs(parasMatch);
 
     setReadTime(formatTimeMinutes(total / 200));
     setSpeakTime(formatTimeMinutes(total / 150));
 
-    const sortedKw = Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, 25);
+    const sortedKw = Object.entries(freq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 25);
+
     setKwEntries(sortedKw);
   }, [text]);
 
@@ -113,19 +132,24 @@ export default function WordCountOnlineWordCounter() {
     }
 
     let count = 0;
+
     if (partialMatch && !wholeWord) {
       const src = caseSens ? text : text.toLowerCase();
       const q = caseSens ? swInput : swInput.toLowerCase();
+
       let pos = 0;
+
       while ((pos = src.indexOf(q, pos)) !== -1) {
         count++;
         pos += q.length || 1;
       }
     } else {
       const words = getWords(text);
+
       words.forEach((w) => {
         const a = caseSens ? w : w.toLowerCase();
         const b = caseSens ? swInput : swInput.toLowerCase();
+
         if (wholeWord) {
           if (a === b) count++;
         } else if (partialMatch) {
@@ -135,6 +159,7 @@ export default function WordCountOnlineWordCounter() {
         }
       });
     }
+
     setSwCount(count);
   }, [swInput, caseSens, wholeWord, partialMatch, text]);
 
@@ -152,12 +177,16 @@ export default function WordCountOnlineWordCounter() {
 
   const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
+
     if (!files || files.length === 0) return;
 
     const readFile = (file: File) => {
       return new Promise<string>((resolve) => {
         const reader = new FileReader();
-        reader.onload = (evt) => resolve((evt.target?.result as string) || "");
+
+        reader.onload = (evt) =>
+          resolve((evt.target?.result as string) || "");
+
         reader.onerror = () => resolve("");
         reader.readAsText(file);
       });
@@ -167,10 +196,15 @@ export default function WordCountOnlineWordCounter() {
       const promises = Array.from(files).map((file) => readFile(file));
       const contents = await Promise.all(promises);
       const valid = contents.filter((c) => c.trim() !== "");
+
       if (valid.length === 0) return;
 
       const combined = valid.join("\n\n---\n\n");
-      const updated = text.trim() ? text + "\n\n---\n\n" + combined : combined;
+
+      const updated = text.trim()
+        ? text + "\n\n---\n\n" + combined
+        : combined;
+
       setText(updated);
       taRef.current?.focus();
     } catch (err) {
@@ -186,45 +220,49 @@ export default function WordCountOnlineWordCounter() {
       setText(clipText);
       taRef.current?.focus();
     } catch (err) {
-      // ignore
+      // Ignore clipboard errors
     }
   };
 
   const hasText = text.length > 0;
 
-  // Schema Markup JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqData.map((item) => ({
+    mainEntity: faqData.map((item) => ({
       "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
+      name: item.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": item.answer
-      }
-    }))
+        text: item.answer,
+      },
+    })),
   };
 
   return (
-    <div className="wrap">
+    <div className="word-counter1">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <h1 className="main-h1">Word Count Online Word Counter</h1>
-      <p className="sub">
-        Use the ultimate word count online word counter tool to analyze your text, check character count, sentence count, and keyword density easily.
+      <h1 className="word-counter2">
+        Word Count Online Word Counter
+      </h1>
+
+      <p className="word-counter3">
+        Use the ultimate word count online word counter tool to analyze your
+        text, check character count, sentence count, and keyword density easily.
       </p>
 
-      <div className="ta-box">
-        <div className="line-numbers" ref={lineNumRef}>
+      <div className="word-counter4">
+        <div className="word-counter5" ref={lineNumRef}>
           {lineNumbers}
         </div>
+
         <textarea
           ref={taRef}
-          className="textarea-field"
+          className="word-counter6"
           placeholder="Enter your text (English, Arabic, etc.)"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -235,8 +273,9 @@ export default function WordCountOnlineWordCounter() {
           }}
           autoFocus
         />
+
         <button
-          className={`paste-btn ${hasText ? "hidden" : ""}`}
+          className={`word-counter7 ${hasText ? "word-counter8" : ""}`}
           onClick={handlePasteClick}
           type="button"
         >
@@ -244,24 +283,31 @@ export default function WordCountOnlineWordCounter() {
         </button>
       </div>
 
-      <div className="actions">
+      <div className="word-counter9">
         <button
-          className={`act dark conditional-act ${hasText ? "show" : ""}`}
+          className={`word-counter10 word-counter11 word-counter12 ${
+            hasText ? "word-counter13" : ""
+          }`}
           onClick={handleClear}
           type="button"
         >
           Clear
         </button>
+
         <button
-          className={`act conditional-act ${hasText ? "show" : ""}`}
+          className={`word-counter10 word-counter11 ${
+            hasText ? "word-counter13" : ""
+          }`}
           onClick={handleCopy}
           type="button"
         >
           Copy Text
         </button>
-        <label className="upload-label" htmlFor="fileInput">
+
+        <label className="word-counter14" htmlFor="fileInput">
           Upload File
         </label>
+
         <input
           type="file"
           id="fileInput"
@@ -272,78 +318,68 @@ export default function WordCountOnlineWordCounter() {
         />
       </div>
 
-      {/* Stats grid */}
-      <div className="stats">
-        <div className="stat">
-          <div className="num">{totalWords}</div>
-          <div className="label">Total Words</div>
-        </div>
-        <div className="stat">
-          <div className="num">{uniqueWords}</div>
-          <div className="label">Unique Words</div>
-        </div>
-        <div className="stat">
-          <div className="num">{repeatedWords}</div>
-          <div className="label">Repeated Words</div>
-        </div>
-        <div className="stat">
-          <div className="num">{sentences}</div>
-          <div className="label">Sentences</div>
-        </div>
-        <div className="stat">
-          <div className="num">{paragraphs}</div>
-          <div className="label">Paragraphs</div>
-        </div>
-        <div className="stat">
-          <div className="num">{linesCount}</div>
-          <div className="label">Lines</div>
-        </div>
-        <div className="stat">
-          <div className="num">{chars}</div>
-          <div className="label">Chars (spaces)</div>
-        </div>
-        <div className="stat">
-          <div className="num">{charsNo}</div>
-          <div className="label">Chars (no spaces)</div>
-        </div>
+      <div className="word-counter15">
+        {[
+          ["Total Words", totalWords],
+          ["Unique Words", uniqueWords],
+          ["Repeated Words", repeatedWords],
+          ["Sentences", sentences],
+          ["Paragraphs", paragraphs],
+          ["Lines", linesCount],
+          ["Chars (spaces)", chars],
+          ["Chars (no spaces)", charsNo],
+        ].map(([label, value]) => (
+          <div className="word-counter16" key={label}>
+            <div className="word-counter17">{value}</div>
+            <div className="word-counter18">{label}</div>
+          </div>
+        ))}
       </div>
 
-      {/* Reading / Speaking time */}
-      <div className="card">
-        <div className="card-title">Time Estimate</div>
-        <div className="time-row">
-          <div className="time-box">
-            <div className="t-val">{readTime}</div>
-            <div className="t-label">Reading Time (~200 wpm)</div>
+      <div className="word-counter19">
+        <div className="word-counter20">Time Estimate</div>
+
+        <div className="word-counter21">
+          <div className="word-counter22">
+            <div className="word-counter23">{readTime}</div>
+            <div className="word-counter24">
+              Reading Time (~200 wpm)
+            </div>
           </div>
-          <div className="time-box">
-            <div className="t-val">{speakTime}</div>
-            <div className="t-label">Speaking Time (~150 wpm)</div>
+
+          <div className="word-counter22">
+            <div className="word-counter23">{speakTime}</div>
+            <div className="word-counter24">
+              Speaking Time (~150 wpm)
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Specific word counter */}
-      <div className="card">
-        <div className="card-title">Specific Word Counter</div>
-        <div className="sw-row">
+      <div className="word-counter19">
+        <div className="word-counter20">Specific Word Counter</div>
+
+        <div className="word-counter25">
           <input
             type="text"
             placeholder="Enter a word…"
             value={swInput}
             onChange={(e) => setSwInput(e.target.value)}
           />
-          <div className="sw-result">{swCount}</div>
+
+          <div className="word-counter26">{swCount}</div>
         </div>
-        <div className="opts">
+
+        <div className="word-counter27">
           <label>
             <input
               type="checkbox"
               checked={caseSens}
               onChange={(e) => setCaseSens(e.target.checked)}
-            />{" "}
+            />
             Case Sensitive
           </label>
+
           <label>
             <input
               type="checkbox"
@@ -352,9 +388,10 @@ export default function WordCountOnlineWordCounter() {
                 setWholeWord(e.target.checked);
                 if (e.target.checked) setPartialMatch(false);
               }}
-            />{" "}
+            />
             Whole Word Only
           </label>
+
           <label>
             <input
               type="checkbox"
@@ -363,30 +400,40 @@ export default function WordCountOnlineWordCounter() {
                 setPartialMatch(e.target.checked);
                 if (e.target.checked) setWholeWord(false);
               }}
-            />{" "}
+            />
             Partial Match
           </label>
         </div>
       </div>
 
-      {/* Keyword density */}
-      <div className="card">
-        <div className="card-title">Keyword Density — Top Words</div>
-        <div className="kw-list">
+      <div className="word-counter19">
+        <div className="word-counter20">
+          Keyword Density — Top Words
+        </div>
+
+        <div className="word-counter28">
           {kwEntries.length === 0 ? (
-            <div className="empty-msg">No words yet</div>
+            <div className="word-counter35">No words yet</div>
           ) : (
             kwEntries.map(([word, cnt], idx) => {
-              const pct = totalForKw ? ((cnt / totalForKw) * 100).toFixed(1) : "0.0";
-              const barW = totalForKw ? Math.min(100, (cnt / totalForKw) * 100 * 4) : 0;
+              const pct = totalForKw
+                ? ((cnt / totalForKw) * 100).toFixed(1)
+                : "0.0";
+
+              const barW = totalForKw
+                ? Math.min(100, (cnt / totalForKw) * 100 * 4)
+                : 0;
+
               return (
-                <div className="kw-item" key={idx}>
-                  <span className="kw-word">{word}</span>
-                  <div className="kw-bar">
-                    <span style={{ width: `${barW}%` }}></span>
+                <div className="word-counter29" key={idx}>
+                  <span className="word-counter30">{word}</span>
+
+                  <div className="word-counter31">
+                    <span style={{ width: `${barW}%` }} />
                   </div>
-                  <span className="kw-count">{cnt}</span>
-                  <span className="kw-pct">{pct}%</span>
+
+                  <span className="word-counter32">{cnt}</span>
+                  <span className="word-counter33">{pct}%</span>
                 </div>
               );
             })
@@ -394,22 +441,37 @@ export default function WordCountOnlineWordCounter() {
         </div>
       </div>
 
-      {/* FAQ Section with collapsible behavior and uniform H2/H3/H4 font sizing */}
-      <div className="faq-section">
-        <h2 className="card-title">Frequently Asked Questions</h2>
+      {/* FAQ Section */}
+      <div className="word-counter34">
+        <h2 className="word-counter20">
+          Frequently Asked Questions
+        </h2>
+
         {faqData.map((item, index) => {
           const isOpen = openFaq === index;
+
+          const QuestionTag: "h2" | "h3" =
+            item.heading === "h2" ? "h2" : "h3";
+
           return (
             <div
-              className="faq-card"
+              className="word-counter36"
               key={index}
               onClick={() => setOpenFaq(isOpen ? null : index)}
             >
-              <h3 className="faq-question">
+              <QuestionTag className="word-counter37">
                 {item.question}
-                <span>{isOpen ? "▲" : "▼"}</span>
-              </h3>
-              {isOpen && <div className="faq-answer">{item.answer}</div>}
+
+                <span className="word-counter38">
+                  {isOpen ? "▲" : "▼"}
+                </span>
+              </QuestionTag>
+
+              {isOpen && (
+                <div className="word-counter39">
+                  {item.answer}
+                </div>
+              )}
             </div>
           );
         })}

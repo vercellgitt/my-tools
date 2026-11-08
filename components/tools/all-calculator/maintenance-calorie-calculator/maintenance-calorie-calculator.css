@@ -1,0 +1,249 @@
+/* Unique Component Styling - Independent Class Hierarchy */
+.maintenance-calorie1 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #333333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 20px;
+}
+
+.maintenance-calorie2 {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.maintenance-calorie3 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 24px;
+}
+
+.maintenance-calorie4 {
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.maintenance-calorie5 {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #475569;
+}
+
+.maintenance-calorie6 {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.maintenance-calorie6:hover {
+  border-color: #94a3b8;
+}
+
+.maintenance-calorie6:focus {
+  border-color: #2563eb;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.maintenance-calorie7 {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.maintenance-calorie8 {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.maintenance-calorie9 {
+  display: flex;
+  gap: 12px;
+}
+
+.maintenance-calorie10 {
+  flex: 1;
+}
+
+.maintenance-calorie11 {
+  margin-top: 24px;
+}
+
+.maintenance-calorie12 {
+  width: 100%;
+  padding: 12px;
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.maintenance-calorie12:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.maintenance-calorie13 {
+  margin-top: 28px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+}
+
+.maintenance-calorie14 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 6px;
+}
+
+.maintenance-calorie15 {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.maintenance-calorie16 {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.maintenance-calorie17 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.maintenance-calorie17 th,
+.maintenance-calorie17 td {
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.maintenance-calorie17 th {
+  background-color: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+}
+
+.maintenance-calorie18 {
+  margin-top: 40px;
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.maintenance-calorie19 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 24px;
+  margin-bottom: 14px;
+}
+
+.maintenance-calorie20 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.maintenance-calorie21 {
+  margin-bottom: 14px;
+}
+
+.maintenance-calorie22 {
+  margin-top: 36px;
+}
+
+.maintenance-calorie23 {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.maintenance-calorie24 {
+  width: 100%;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: none;
+  text-align: left;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+  font-size: 16px;
+  margin: 0;
+}
+
+.maintenance-calorie24:hover {
+  background-color: #f1f5f9;
+}
+
+.maintenance-calorie25 {
+  padding: 18px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.maintenance-calorie26 {
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.maintenance-calorie26.open {
+  transform: rotate(180deg);
+}
+
+.maintenance-calorie27 {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .maintenance-calorie2 {
+    padding: 18px;
+  }
+  .maintenance-calorie9 {
+    flex-direction: column;
+    gap: 0;
+  }
+  .maintenance-calorie24 {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+}
