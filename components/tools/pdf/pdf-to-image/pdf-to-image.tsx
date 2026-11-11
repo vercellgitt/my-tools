@@ -427,51 +427,54 @@ export default function PdfToImageTool() {
 
         {/* Accordion FAQ Section (Exactly matching user's design reference) */}
         <section className="card" style={{ marginTop: "1.5rem" }}>
-          <h3 style={{ fontSize: "1.125rem", fontWeight: "bold", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.5rem", color: "#111827" }}>
+          <h2 style={{ fontSize: "1.125rem", fontWeight: "bold", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.5rem", color: "#111827" }}>
             <i className="fas fa-question-circle" style={{ color: "#2563eb" }}></i> {t.faqTitle}
-          </h3>
+          </h2>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {t.faqs.map((faq: any, idx: number) => {
               const isOpen = activeFaq === idx;
               return (
                 <div key={idx} style={{ borderBottom: idx !== t.faqs.length - 1 ? "1px solid #e2e8f0" : "none" }}>
-                  <button
-                    onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    style={{
-                      width: "100%",
-                      padding: "1rem 0.5rem",
-                      textAlign: "left",
-                      fontWeight: 600,
-                      fontSize: "0.95rem",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      backgroundColor: "transparent",
-                      border: "none",
-                      color: "#111827",
-                      cursor: "pointer"
-                    }}
-                  >
-                    <span>{faq.q}</span>
-                    <div style={{
-                      width: "2rem",
-                      height: "2rem",
-                      borderRadius: "50%",
-                      backgroundColor: "#f1f5f9",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      transition: "transform 0.2s"
-                    }}>
-                      <i className={`fas fa-chevron-down`} style={{
-                        fontSize: "0.75rem",
-                        color: "#4b5563",
-                        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                        transition: "transform 0.2s"
-                      }}></i>
-                    </div>
-                  </button>
+                  <h2 style={{ margin: 0, fontSize: "inherit", fontWeight: "inherit" }}>
+  <button
+    onClick={() => setActiveFaq(isOpen ? null : idx)}
+    aria-expanded={isOpen}
+    style={{
+      width: "100%",
+      padding: "1rem 0.5rem",
+      textAlign: "left",
+      fontWeight: 600,
+      fontSize: "0.95rem",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      backgroundColor: "transparent",
+      border: "none",
+      color: "#111827",
+      cursor: "pointer"
+    }}
+  >
+    <span>{faq.q}</span>
+    <div style={{
+      width: "2rem",
+      height: "2rem",
+      borderRadius: "50%",
+      backgroundColor: "#f1f5f9",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexShrink: 0,
+      transition: "transform 0.2s"
+    }}>
+      <i className="fas fa-chevron-down" style={{
+        fontSize: "0.75rem",
+        color: "#01050a",
+        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 0.2s"
+      }}></i>
+    </div>
+  </button>
+</h2>
                   {isOpen && (
                     <div style={{ padding: "0 0.5rem 1rem 0.5rem", fontSize: "0.85rem", color: "#4b5563", lineHeight: "1.6" }}>
                       {faq.a}

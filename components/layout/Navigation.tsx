@@ -23,13 +23,18 @@ export default function Navigation() {
           liebess<span>.com</span>
         </Link>
 
+        {/* শুধু হোম বাটনটি রাখা হয়েছে, বাকি মেনুগুলো কমেন্টআউট করা হলো */}
         <div className="desktop-nav">
           <Link href="/">Home</Link>
+          
+          {/* 
           <Link href="/#popular-tools">Finance Calcouator</Link>
           <Link href="/about-us">Health Calculator</Link>
           <Link href="/contact-us">Pdf-Image</Link>
+          */}
         </div>
 
+        {/* 
         <button
           type="button"
           className="mobile-menu-button"
@@ -51,7 +56,7 @@ export default function Navigation() {
             </Link>
 
             <Link href="/#popular-tools" onClick={closeMenu}>
-             Finance Calcouator
+              Finance Calcouator
             </Link>
 
             <Link href="/about-us" onClick={closeMenu}>
@@ -63,6 +68,8 @@ export default function Navigation() {
             </Link>
           </div>
         )}
+        */}
+
       </nav>
     </header>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./body-mass-index-calculator.css";
 import { translations, languages } from "./i18n";
 
@@ -15,7 +15,20 @@ export default function BodyMassIndexCalculator({
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
+ const [gender, setGender] = useState(() => {
+  if (slug === "body-mass-index-calculator-men") return "male";
+  if (slug === "body-mass-index-calculator-for-female") return "female";
+  return "";
+});
+  useEffect(() => {
+    if (slug === "body-mass-index-calculator-men") {
+      setGender("male");
+    } else if (slug === "body-mass-index-calculator-for-female") {
+      setGender("female");
+    } else {
+      setGender("");
+    }
+  }, [slug]);
   const [height, setHeight] = useState("");
   const [heightUnit, setHeightUnit] = useState("cm");
   const [weight, setWeight] = useState("");
@@ -287,7 +300,7 @@ export default function BodyMassIndexCalculator({
             />
 
             <div className={`bmi-warning ${!age ? "show" : ""}`}>
-              {t.warningComplete}
+              {t.warningAge}
             </div>
           </div>
 
@@ -307,7 +320,7 @@ export default function BodyMassIndexCalculator({
             </select>
 
             <div className={`bmi-warning ${!gender ? "show" : ""}`}>
-              {t.warningComplete}
+             {t.warningGender}
             </div>
           </div>
 
@@ -339,7 +352,7 @@ export default function BodyMassIndexCalculator({
             </div>
 
             <div className={`bmi-warning ${!height ? "show" : ""}`}>
-              {t.warningComplete}
+              {t.warningHeight}
             </div>
           </div>
 
@@ -370,7 +383,7 @@ export default function BodyMassIndexCalculator({
             </div>
 
             <div className={`bmi-warning ${!weight ? "show" : ""}`}>
-              {t.warningComplete}
+             {t.warningWeight}
             </div>
           </div>
 

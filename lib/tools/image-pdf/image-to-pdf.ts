@@ -1,6 +1,6 @@
 export const imageToPdf = {
   slug: "image-to-pdf",
-  title: "Free Image to PDF Converter - Convert JPG, PNG & WebP Online Fast",
+  title: "Free Image to PDF Converter - Convert JPG, PNG & WebP Online",
   description: "Easily convert multiple images to PDF online for free. Reorder, rotate, and combine JPG, PNG, and WebP files instantly into a secure PDF document.",
   keywords: [
     "image to pdf",

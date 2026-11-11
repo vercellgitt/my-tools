@@ -1,0 +1,277 @@
+.cubic-wrapper-box {
+    width: 100%;
+    max-width: 650px;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #222222;
+}
+
+.cubic-main-h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #111111;
+}
+
+.cubic-tab-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cubic-tab-btn {
+    background-color: #f1f3f5;
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #495057;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.cubic-tab-btn.active {
+    background-color: #1b5e20;
+    color: #ffffff;
+}
+
+.cubic-tab-btn:hover:not(.active) {
+    background-color: #e2e8f0;
+}
+
+.cubic-calculator-section {
+    display: none;
+}
+
+.cubic-calculator-section.active {
+    display: block;
+}
+
+.cubic-form-group {
+    margin-bottom: 16px;
+}
+
+.cubic-label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333333;
+}
+
+.cubic-input, .cubic-select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #333333;
+    outline: none;
+}
+
+.cubic-input:focus, .cubic-select:focus {
+    border-color: #1b5e20;
+    box-shadow: 0 0 0 2px rgba(27, 94, 32, 0.1);
+}
+
+.cubic-row-inputs {
+    display: flex;
+    gap: 15px;
+}
+
+.cubic-row-inputs .cubic-form-group {
+    flex: 1;
+}
+
+.cubic-warning-text {
+    display: none;
+    font-size: 12px;
+    color: #d32f2f;
+    margin-top: 4px;
+}
+
+.cubic-result-box {
+    display: none;
+    margin-top: 25px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.cubic-result-box.active {
+    display: block;
+}
+
+.cubic-result-box h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #1b5e20;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 6px;
+}
+
+.cubic-primary-result {
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.cubic-primary-label {
+    font-size: 13px;
+    color: #2e7d32;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.cubic-primary-value {
+    font-size: 26px;
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+.cubic-sub-results-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #dee2e6;
+    padding-top: 12px;
+}
+
+.cubic-result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.cubic-result-item:last-child {
+    margin-bottom: 0;
+}
+
+.cubic-result-label {
+    color: #555555;
+    font-weight: bold;
+}
+
+.cubic-result-value {
+    color: #111111;
+    font-weight: bold;
+}
+
+.cubic-formula-box {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #666666;
+    font-style: italic;
+    border-top: 1px dashed #cccccc;
+    padding-top: 8px;
+}
+
+/* SEO Content & FAQ Styles */
+.cubic-seo-container {
+    margin-top: 40px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 30px;
+}
+
+.cubic-seo-intro {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4a5568;
+    margin-bottom: 25px;
+}
+
+.cubic-seo-article-title, .cubic-seo-faq-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a202c;
+    margin-bottom: 15px;
+}
+
+.cubic-seo-section {
+    margin-bottom: 20px;
+}
+
+.cubic-seo-heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.cubic-seo-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.cubic-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cubic-faq-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.cubic-faq-question {
+    width: 100%;
+    padding: 14px 16px;
+    background: #f7fafc;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2d3748;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cubic-faq-question:hover {
+    background: #edf2f7;
+}
+
+.cubic-faq-answer {
+    padding: 0 16px 14px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4a5568;
+    border-top: 1px solid #edf2f7;
+    background: #ffffff;
+}
+
+@media (max-width: 480px) {
+    .cubic-row-inputs {
+        flex-direction: column;
+        gap: 0;
+    }
+    .cubic-wrapper-box {
+        padding: 15px;
+    }
+}

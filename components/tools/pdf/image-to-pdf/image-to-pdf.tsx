@@ -195,7 +195,7 @@ export default function ImageToPdf() {
             onClick={() => fileInputRef.current?.click()}
           >
             <div className="i2p-upload-icon">📄</div>
-            <h3>{t.uploadTitle}</h3>
+            <h2>{t.uploadTitle}</h2>
             <p>{t.uploadFormats}</p>
             <input
               type="file"
@@ -306,13 +306,13 @@ export default function ImageToPdf() {
           <h2>{t.faqTitle}</h2>
           {t.faqs.map((faq: any, idx: number) => (
             <div key={idx} className="i2p-faq-item">
-              <button
-                className="i2p-faq-question"
-                onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-              >
-                <span>{faq.q}</span>
-                <span>{openFaq === idx ? "▲" : "▼"}</span>
-              </button>
+             <button
+  className="i2p-faq-question"
+  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+>
+  <h2>{faq.q}</h2>
+  <span>{openFaq === idx ? "▲" : "▼"}</span>
+</button>
               {openFaq === idx && <div className="i2p-faq-answer">{faq.a}</div>}
             </div>
           ))}

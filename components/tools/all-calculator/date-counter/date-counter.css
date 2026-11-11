@@ -1,0 +1,380 @@
+/* date-counter.css - Direct CSS with keyword-based class scoping */
+
+.date-counter1,
+.date-counter2,
+.date-counter3,
+.date-counter4,
+.date-counter5,
+.date-counter6,
+.date-counter7,
+.date-counter8,
+.date-counter9,
+.date-counter10,
+.date-counter11 {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+.date-counter-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+.date-counter-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+.date-counter-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.date-counter-header h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.35rem;
+}
+
+.date-counter-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Tabs */
+.date-counter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+}
+
+.date-counter-tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.date-counter-tab-btn:hover {
+    color: #2563eb;
+    background-color: #f8fafc;
+}
+
+.date-counter-tab-btn.active {
+    color: #ffffff;
+    background-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Mobile Nav Select */
+.date-counter-mobile-select {
+    display: none;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.date-counter-mobile-select:focus {
+    border-color: #2563eb;
+    background-color: #ffffff;
+}
+
+/* Sections */
+.date-counter-calc-section {
+    display: none;
+}
+
+.date-counter-calc-section.active {
+    display: block;
+}
+
+.date-counter-section-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.date-counter-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.date-counter-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.date-counter-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.date-counter-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #334155;
+    letter-spacing: 0.01em;
+}
+
+.date-counter-input,
+.date-counter-select {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    width: 100%;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.date-counter-input:hover, 
+.date-counter-select:hover {
+    border-color: #cbd5e1;
+}
+
+.date-counter-input:focus, 
+.date-counter-select:focus {
+    border-color: #2563eb;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.date-counter-error-msg {
+    color: #dc2626;
+    font-size: 0.8rem;
+    min-height: 1.1rem;
+    display: none;
+    font-weight: 500;
+}
+
+.date-counter-error-msg.visible {
+    display: block;
+}
+
+/* Results Box */
+.date-counter-result-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+    display: none;
+}
+
+.date-counter-result-box.visible {
+    display: block;
+}
+
+.date-counter-result-box h3 {
+    font-size: 0.90rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.date-counter-result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.date-counter-result-item {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.date-counter-result-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.date-counter-result-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: 600;
+}
+
+.date-counter-result-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 0.2rem;
+}
+
+/* Bottom Reset Container */
+.date-counter-bottom-action {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    display: none;
+}
+
+.date-counter-bottom-action.visible {
+    display: flex;
+}
+
+.date-counter-btn-reset {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #475569;
+    transition: all 0.2s ease-in-out;
+}
+
+.date-counter-btn-reset:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border-color: #94a3b8;
+}
+
+.date-counter-note-text {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 0.75rem;
+    line-height: 1.4;
+}
+
+/* SEO Content & Accordion FAQ Section */
+.date-counter-seo-content {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e2e8f0;
+}
+
+.date-counter-seo-content h2 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.date-counter-seo-content h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.date-counter-seo-content h4 {
+    font-size: 1rem;
+    color: #334155;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.date-counter-seo-content p {
+    color: #475569;
+    margin-bottom: 1rem;
+}
+
+.date-counter-faq-section {
+    margin-top: 2.5rem;
+}
+
+.date-counter-faq-section h2 {
+    font-size: 1.35rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.date-counter-faq-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.date-counter-faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    background: #f8fafc;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-counter-faq-question:hover {
+    background-color: #f1f5f9;
+}
+
+.date-counter-faq-answer {
+    padding: 1rem;
+    color: #475569;
+    font-size: 0.95krem;
+    border-top: 1px solid #e2e8f0;
+    display: none;
+    background-color: #ffffff;
+}
+
+.date-counter-faq-item.open .date-counter-faq-answer {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .date-counter-tabs {
+        display: none;
+    }
+    .date-counter-mobile-select {
+        display: block;
+    }
+    .date-counter-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .date-counter-container {
+        padding: 1.25rem;
+    }
+}

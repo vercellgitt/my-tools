@@ -324,7 +324,7 @@
 
 .bmi-faq-arrow {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #020912;
   transition: transform 0.25s ease;
   flex-shrink: 0;
 }
@@ -345,7 +345,7 @@
 
 .bmi-faq-answer-inner {
   padding: 0 18px 16px;
-  color: #4b5563;
+  color: #040b16;
   font-size: 0.95rem;
   line-height: 1.65;
 }

@@ -1,0 +1,495 @@
+.prayer-time1 {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 15px;
+  background: #ffffff;
+  color: #171717;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.prayer-time1 * {
+  box-sizing: border-box;
+}
+
+.prayer-time2 {
+  text-align: center;
+}
+
+.prayer-time2 h1 {
+  font-size: clamp(25px, 5vw, 36px);
+  font-weight: 800;
+}
+
+.prayer-time-location {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #047857;
+  font-size: 26px;
+}
+
+.prayer-time4 {
+  padding: 25px 15px;
+  text-align: center;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.prayer-time4 h2 {
+  font-size: 22px;
+}
+
+.prayer-time4 h3 {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.prayer-time5 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #047857;
+}
+
+.prayer-time6 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #047857;
+  margin-top: 8px;
+}
+
+.prayer-time-next-date {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #010914;
+}
+
+.prayer-time7 {
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.prayer-time8 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.prayer-time-hijri {
+  color: #047857;
+  font-weight: 600;
+}
+
+.prayer-time-button {
+  padding: 10px 16px;
+  background: #047857;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.prayer-time-button:hover {
+  background: #065f46;
+}
+
+/* Prayer Cards */
+
+.prayer-time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.prayer-time-card {
+  padding: 12px 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 0;
+}
+
+.prayer-time-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.prayer-time-card-time {
+  font-size: 21px;
+  font-weight: 800;
+  color: #047857;
+  margin: 5px 0;
+}
+
+.prayer-time-card p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.prayer-time-active {
+  background: #ecfdf5;
+  border: 2px solid #059669;
+}
+
+.prayer-time-upcoming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 5px;
+  color: #047857;
+}
+
+.prayer-time-upcoming span:first-child {
+  font-size: 12px;
+  color: #000710;
+}
+
+.prayer-time-upcoming strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.prayer-time-upcoming span:not(:first-child) {
+  font-size: 14px;  margin: 10px 0;
+  font-weight: 600;
+}
+
+.prayer-time-upcoming small {
+  font-size: 11px;
+  color: #00060e;
+}
+
+.prayer-time-method {
+  margin-top: 15px;
+}
+
+.prayer-time-method label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 30 Day Prayer Schedule Design */
+
+.prayer-time-schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prayer-time-day {
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #dceee7;
+  background: #ffffff;
+}
+
+.prayer-time-day-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #e9f8f1;
+  white-space: nowrap;
+}
+
+.prayer-time-day-heading h3,
+.prayer-time-day-heading p,
+.prayer-time-day-heading strong {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.prayer-time-day-heading h3 {
+  font-weight: 700;
+}
+
+.prayer-time-day-heading p {
+  font-weight: 500;
+}
+
+.prayer-time-day-heading strong {
+  font-weight: 700;
+}
+
+.prayer-time-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.prayer-time-table {
+  width: 100%;
+  min-width: 580px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.prayer-time-table th {
+  padding: 9px 5px 3px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.prayer-time-table td {
+  padding: 3px 5px 10px;
+  text-align: center;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.prayer-time-table th,
+.prayer-time-table td {
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .prayer-time-day-heading {
+    gap: 9px;
+    padding: 9px 10px;
+  }
+
+  .prayer-time-day-heading h3,
+  .prayer-time-day-heading p,
+  .prayer-time-day-heading strong {
+    font-size: 12px;
+  }
+
+  .prayer-time-table {
+    min-width: 560px;
+  }
+}
+
+/* FAQ */
+
+.prayer-time10 article {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.prayer-time10 h3 {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.prayer-time-footer {
+  text-align: center;
+  color: #010914;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.prayer-time-loading,
+.prayer-time-error {
+  text-align: center;
+  padding: 35px;
+}
+
+.prayer-time-error {
+  color: #dc2626;
+}
+
+/* Tablet and Desktop */
+
+@media (min-width: 650px) {
+  .prayer-time-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .prayer-time1 {
+    padding: 8px;
+  }
+
+  .prayer-time-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .prayer-time-card {
+    padding: 10px 5px;
+  }
+
+  .prayer-time-card h3 {
+    font-size: 17px;
+  }
+
+  .prayer-time-card-time {
+    font-size: 19px;
+  }
+
+  .prayer-time8 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .prayer-time-button {
+    width: 100%;
+  }
+
+  .prayer-time-day-heading {
+    gap: 9px;
+    padding: 7px 9px;
+  }
+
+  .prayer-time-day-heading h3 {
+    font-size: 14px;
+  }
+
+  .prayer-time-day-heading p {
+    font-size: 13px;
+  }
+
+  .prayer-time-day-heading strong {
+    font-size: 12px;
+  }
+
+  .prayer-time-table {
+    min-width: 650px;
+  }
+}
+
+/* Prayer Calculation Method */
+
+.prayer-time-method {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid #dceee7;
+  border-radius: 10px;
+  background: #f5fbf8;
+}
+
+.prayer-time-method h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.prayer-time-method label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.prayer-time-method input {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.prayer-time-method p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #010010;
+}
+
+/* Prayer Names */
+
+.prayer-time-next-name {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.prayer-time-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* FAQ Accordion */
+
+.prayer-time-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prayer-time-faq-item {
+  border: 1px solid #dce5e0;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.prayer-time-faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.prayer-time-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.prayer-time-faq-item summary h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.prayer-time-faq-icon {
+  flex-shrink: 0;
+  font-size: 23px;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.prayer-time-faq-item[open] .prayer-time-faq-icon {
+  transform: rotate(45deg);
+}
+
+.prayer-time-faq-answer {
+  padding: 0 16px 14px;
+}
+
+.prayer-time-faq-answer p {
+  margin: 0;
+  line-height: 1.7;
+  color: #030013;
+}
+
+@media (max-width: 600px) {
+  .prayer-time-method h2 {
+    font-size: 18px;
+  }
+
+  .prayer-time-faq-item summary {
+    padding: 12px;
+  }
+
+  .prayer-time-faq-item summary h3 {
+    font-size: 14px;
+  }
+}
+/* Sunrise Card */
+.prayer-time-sunrise {
+  border: 1px solid #f0c36d;
+  background: #fffaf0;
+}
+
+.prayer-time-sunrise .prayer-time-card-name {
+  color: #b7791f;
+}
