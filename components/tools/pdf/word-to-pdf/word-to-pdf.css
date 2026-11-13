@@ -1,0 +1,822 @@
+.word-to-pdf1 {
+  box-sizing: border-box;
+  margin: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  background: #ffffff;
+  color: #172033;
+  min-height: 100vh;
+}
+
+.word-to-pdf1 *,
+.word-to-pdf1 *::before,
+.word-to-pdf1 *::after {
+  box-sizing: border-box;
+}
+
+.word-to-pdf2 {
+  display: none !important;
+}
+
+.word-to-pdf3 {
+  padding: 25px 20px 60px;
+}
+
+.word-to-pdf4 {
+  width: min(100%, 1050px);
+  margin: 0 auto;
+}
+
+.word-to-pdf5 {
+  border: 2px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 55px 25px;
+  text-align: center;
+  background: #f8fafc;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+.word-to-pdf5:hover,
+.word-to-pdf6 {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.word-to-pdf6 {
+  transform: scale(1.01);
+}
+
+.word-to-pdf7 {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.word-to-pdf8 {
+  margin: 0;
+  color: #101828;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.word-to-pdf9 {
+  margin: 9px 0;
+  color: #98a2b3;
+  font-size: 15px;
+}
+
+.word-to-pdf10 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 9px;
+  border: 0;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    transform 0.12s ease;
+}
+
+.word-to-pdf10:hover {
+  background: #1d4ed8;
+}
+
+.word-to-pdf10:active {
+  transform: scale(0.98);
+}
+
+.word-to-pdf11 {
+  margin: 20px 0 0;
+  color: #667085;
+  font-size: 13px;
+}
+
+.word-to-pdf12 {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.word-to-pdf13 {
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 35px rgba(16, 24, 40, 0.06);
+}
+
+.word-to-pdf14 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.word-to-pdf15 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #101828;
+}
+
+.word-to-pdf16 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.word-to-pdf17 {
+  padding: 8px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.word-to-pdf17:hover {
+  background: #f9fafb;
+}
+
+.word-to-pdf18 {
+  border: 0;
+  background: transparent;
+  padding: 7px 4px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #dc2626;
+  cursor: pointer;
+}
+
+.word-to-pdf19 {
+  display: grid;
+  gap: 10px;
+}
+
+.word-to-pdf20 {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 14px;
+  border: 1px solid #eaecf0;
+  border-radius: 11px;
+  background: #fcfcfd;
+}
+
+.word-to-pdf21 {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.word-to-pdf22 {
+  min-width: 0;
+  flex: 1;
+}
+
+.word-to-pdf23 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #101828;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.word-to-pdf24 {
+  margin-top: 3px;
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+.word-to-pdf25 {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #98a2b3;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.word-to-pdf25:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.word-to-pdf26 {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+.word-to-pdf27 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.word-to-pdf28 {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.word-to-pdf29 {
+  color: #344054;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.word-to-pdf30 {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: #101828;
+  font: inherit;
+}
+
+.word-to-pdf30:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.word-to-pdf31 {
+  margin-top: 16px;
+}
+
+.word-to-pdf32 {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: #475467;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.word-to-pdf33 {
+  transition: transform 0.2s ease;
+}
+
+.word-to-pdf34 {
+  transform: rotate(180deg);
+}
+
+.word-to-pdf35 {
+  margin-top: 12px;
+}
+
+.word-to-pdf36 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.word-to-pdf37 {
+  min-height: 48px;
+  padding: 13px 25px;
+  border: 0;
+  border-radius: 9px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.word-to-pdf37:hover {
+  background: #1d4ed8;
+}
+
+.word-to-pdf37:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.word-to-pdf38 {
+  margin-top: 22px;
+  padding: 45px 25px;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.word-to-pdf39 {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 20px;
+  border: 4px solid #dbeafe;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: word-to-pdf-spin 0.8s linear infinite;
+}
+
+@keyframes word-to-pdf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.word-to-pdf40 {
+  margin: 0;
+  font-size: 19px;
+  color: #101828;
+}
+
+.word-to-pdf41 {
+  margin: 8px 0 18px;
+  color: #667085;
+  font-size: 14px;
+}
+
+.word-to-pdf42 {
+  width: min(100%, 600px);
+  height: 8px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.word-to-pdf43 {
+  height: 100%;
+  border-radius: inherit;
+  background: #2563eb;
+  transition: width 0.2s ease;
+}
+
+.word-to-pdf44 {
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 35px rgba(16, 24, 40, 0.06);
+}
+
+.word-to-pdf45 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.word-to-pdf46 {
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.word-to-pdf47 {
+  margin: 0;
+  font-size: 22px;
+  color: #101828;
+}
+
+.word-to-pdf48 {
+  margin: 5px 0 0;
+  color: #667085;
+  font-size: 14px;
+}
+
+.word-to-pdf49 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.word-to-pdf50 {
+  padding: 16px;
+  border: 1px solid #eaecf0;
+  border-radius: 10px;
+  background: #fcfcfd;
+}
+
+.word-to-pdf51 {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.word-to-pdf52 {
+  display: block;
+  margin-top: 6px;
+  color: #101828;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.word-to-pdf53 {
+  margin-top: 20px;
+}
+
+.word-to-pdf54 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.word-to-pdf55 {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 0;
+  outline: 0;
+  color: #101828;
+  font: inherit;
+}
+
+.word-to-pdf56 {
+  padding: 0 13px;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.word-to-pdf57 {
+  margin-top: 20px;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f2f4f7;
+}
+
+.word-to-pdf58 {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #d0d5dd;
+  background: #ffffff;
+}
+
+.word-to-pdf59 {
+  color: #344054;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.word-to-pdf60 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.word-to-pdf61 {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #475467;
+  cursor: pointer;
+}
+
+.word-to-pdf61:hover {
+  background: #f2f4f7;
+}
+
+.word-to-pdf62 {
+  min-width: 46px;
+  text-align: center;
+  color: #475467;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.word-to-pdf63 {
+  height: 650px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 25px;
+  background: #e5e7eb;
+}
+
+.word-to-pdf64 {
+  height: 100%;
+  min-height: 600px;
+  border: 0;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  transform-origin: top center;
+  transition: transform 0.15s ease;
+}
+
+.word-to-pdf65 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.word-to-pdf66 {
+  padding: 11px 18px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #344054;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.word-to-pdf66:hover {
+  background: #f9fafb;
+}
+
+.word-to-pdf67 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 18px;
+  color: #667085;
+  text-align: center;
+  font-size: 12px;
+}
+
+.word-to-pdf68 {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  background: #101828;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.word-to-pdf69 {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.word-to-pdf70 {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   SEO CONTENT & FAQ SECTION (TOOL-এর নিচে)
+   ========================================================= */
+
+.word-to-pdf71 {
+  width: min(100%, 1050px);
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+}
+
+.word-to-pdf72 {
+  padding: 32px;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  background: #ffffff;
+  margin-bottom: 32px;
+}
+
+.word-to-pdf73 {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 3.5vw, 34px);
+  line-height: 1.25;
+  font-weight: 800;
+  color: #101828;
+}
+
+.word-to-pdf74 {
+  margin: 0;
+  color: #475467;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.word-to-pdf75 {
+  padding: 32px;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.word-to-pdf76 {
+  margin: 0 0 22px;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 800;
+  color: #101828;
+}
+
+.word-to-pdf77 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.word-to-pdf78 {
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.word-to-pdf78:hover {
+  border-color: #cbd5e1;
+}
+
+.word-to-pdf79 {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: #101828;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.word-to-pdf80 {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.word-to-pdf81 {
+  transform: rotate(45deg);
+}
+
+.word-to-pdf82 {
+  margin: 0;
+  padding: 14px 20px 20px;
+  color: #475467;
+  font-size: 15px;
+  line-height: 1.75;
+  border-top: 1px solid #f2f4f7;
+}
+
+@media (max-width: 800px) {
+  .word-to-pdf27 {
+    grid-template-columns: 1fr;
+  }
+
+  .word-to-pdf49 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .word-to-pdf3 {
+    padding: 15px 12px 40px;
+  }
+
+  .word-to-pdf5 {
+    padding: 40px 15px;
+  }
+
+  .word-to-pdf13,
+  .word-to-pdf44,
+  .word-to-pdf72,
+  .word-to-pdf75 {
+    padding: 16px;
+  }
+
+  .word-to-pdf14 {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .word-to-pdf16 {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .word-to-pdf65 {
+    flex-direction: column;
+  }
+
+  .word-to-pdf65 button {
+    width: 100%;
+  }
+
+  .word-to-pdf63 {
+    height: 520px;
+    padding: 12px;
+  }
+
+  .word-to-pdf64 {
+    min-height: 490px;
+  }
+}

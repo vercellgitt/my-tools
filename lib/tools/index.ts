@@ -14,6 +14,9 @@ import { maintenanceCalorieCalculator } from "./all-calculator/maintenance-calor
 import { cubicFeetTools } from "./all-calculator/calculate-cubic-feet";
 import { dateCounterTools } from "./all-calculator/date-counter";
 import { prayerTimeForInMuslim } from "./prayer-time-for-in-muslim";
+import { densityCalculatorTools } from "./all-calculator/formula-to-find-density";
+import { saleDiscountTaxCalculator } from "./all-calculator/sale-discount-tax-calculator";
+import { wordToPdf } from "./image-pdf/word-to-pdf";
 
 export const toolsRegistry = {
   "online-age-calculator-age-calculator-online": ageCalculator,
@@ -32,6 +35,9 @@ export const toolsRegistry = {
   ...cubicFeetTools,
   ...dateCounterTools,
   "prayer-time-for-muslim-namaz-time-in": prayerTimeForInMuslim,
+  ...densityCalculatorTools,
+  "sale-discount-value-calculator-with-tax-percentage": saleDiscountTaxCalculator,
+  "word-to-pdf-transfer-from-conversion-word-to-pdf": wordToPdf,
 };
 
 // সাইটম্যাপ বা অন্যান্য জায়গায় সহজে ব্যবহারের জন্য একটি অ্যারে এক্সপোর্ট করুন
