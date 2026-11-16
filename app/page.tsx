@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ToolGrid from "@/components/home/ToolGrid";
 
 export const metadata: Metadata = {
-  title: "Free Online Tools and Calculators",
+  title: "Free Online All Tools, Calculators, Games And Etc",
   description:
-    "Explore free online calculators, converters, and useful tools at Liebess.",
+    "Explore free online calculators, converters, browser games, educational resources, quotes, and useful tools at Liebess. Simplify everyday tasks and enjoy more online.",
   alternates: {
     canonical: "/",
   },

@@ -32,7 +32,7 @@
 
 .age-calc-header p {
   margin-top: 7px;
-  color: #64748b;
+  color: #010b18;
   font-size: 14px;
 }
 
@@ -59,7 +59,7 @@
   display: block;
   font-size: 13px;
   font-weight: 700;
-  color: #374151;
+  color: #021129;
   margin-bottom: 7px;
 }
 
@@ -450,7 +450,7 @@
 
 .age-calc-faq-answer {
   font-size: 13px;
-  color: #4b5563;
+  color: #020e1e;
   line-height: 1.5;
 }
 

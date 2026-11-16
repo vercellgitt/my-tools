@@ -202,7 +202,7 @@
   padding: 14px 16px;
   background: #fff;
   font-size: 14px;
-  color: #475569;
+  color: #01060d;
   line-height: 1.6;
   border-top: 1px solid #e2e8f0;
 }
@@ -219,4 +219,17 @@
     grid-template-columns: 1fr;
     gap: 0;
   }
+}
+
+/* Article Internal & External Links CSS */
+.date-and-time1-article a {
+  color: #2563eb !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.date-and-time1-article a:hover {
+  color: #7c3aed !important;
+  text-decoration: underline !important;
 }

@@ -608,3 +608,56 @@ export const dateAndTimeToolsConfig: Record<string, SlugConfig> = {
     ],
   },
 };
+
+// All Website Internal Links
+const allInternalLinks = [
+  { url: "/date-and-time-calculator-between-two-dates", title: "Date and Time Calculator Between Two Dates" },
+  { url: "/how-to-calculate-percentage-of-difference", title: "How to Calculate Percentage of Difference" },
+  { url: "/date-and-time-duration-calculator", title: "Date and Time Duration Calculator" },
+  { url: "/percent-of-difference-formula", title: "Percent of Difference Formula" },
+  { url: "/maintenance-calorie-calculator", title: "Maintenance Calorie Calculator" },
+  { url: "/calculate-cubic-feet", title: "Calculate Cubic Feet" },
+  { url: "/calculate-the-date-between-two-dates", title: "Calculate the Date Between Two Dates" },
+  { url: "/cubic-feet-to-cubic-yard", title: "Cubic Feet to Cubic Yard Converter" },
+  { url: "/body-mass-index-calculator-kg-cm", title: "Body Mass Index Calculator KG CM" },
+  { url: "/date-range-calculator", title: "Date Range Calculator" },
+  { url: "/cubic-feet-per-minute-calculator", title: "Cubic Feet Per Minute Calculator" },
+  { url: "/date-duration-calculator", title: "Date Duration Calculator" },
+  { url: "/body-mass-index-calculator-for-female", title: "Body Mass Index Calculator for Female" },
+  { url: "/arabic-to-gregorian-date-converter", title: "Arabic to Gregorian Date Converter" },
+  { url: "/percent-to-change-formula", title: "Percent to Change Formula" },
+  { url: "/date-to-date-calculator", title: "Date to Date Calculator" },
+  { url: "/daily-water-intake-calculator", title: "Daily Water Intake Calculator" },
+  { url: "/date-and-time-calculator-duration", title: "Date and Time Calculator Duration" },
+  { url: "/pregnancy-due-date-calculator", title: "Pregnancy Due Date Calculator" },
+  { url: "/calculating-density-formula", title: "Calculating Density Formula" },
+];
+
+// External Link
+const externalLink = {
+  url: "https://www.timeanddate.com/date/dateadd.html",
+  title: "Time and Date Calculator",
+};
+
+// Automatically Add Links
+Object.entries(dateAndTimeToolsConfig).forEach(([slug, config]) => {
+  const internalLinksHTML = allInternalLinks
+    .filter((link) => link.url !== `/${slug}`)
+    .map(
+      (link) =>
+        `<a href="${link.url}">${link.title}</a>`
+    )
+    .join("<br/>");
+
+  const externalLinkHTML =
+    `<a href="${externalLink.url}" target="_blank" rel="noopener noreferrer">${externalLink.title}</a>`;
+
+  const lastSection =
+    config.article.sections[config.article.sections.length - 1];
+
+  if (lastSection) {
+    lastSection.content +=
+      `<br/><br/><strong>Related Tools:</strong><br/>${internalLinksHTML}` +
+      `<br/><br/><strong>External Resource:</strong><br/>${externalLinkHTML}`;
+  }
+});

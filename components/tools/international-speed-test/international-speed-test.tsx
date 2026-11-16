@@ -644,6 +644,28 @@ Connected • Live
 
 </div>
 
+{/* Tool Image - Lazy Loaded */}
+<div style={{
+  width: "100%",
+  maxWidth: "800px",
+  margin: "30px auto",
+  textAlign: "center"
+}}>
+  <img
+    src="/images/international-speed-test.webp"
+    alt="International Internet Speed Test"
+    width="800"
+    height="450"
+    loading="lazy"
+    decoding="async"
+    style={{
+      display: "block",
+      width: "100%",
+      height: "auto",
+      borderRadius: "10px"
+    }}
+  />
+</div>
 
 {/* SEO Content & FAQ Section */}
 

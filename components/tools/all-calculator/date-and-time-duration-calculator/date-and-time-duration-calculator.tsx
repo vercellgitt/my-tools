@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { dateAndTimeToolsConfig } from "./faq";
 import "./date-and-time-duration-calculator.css";
+import DOMPurify from "isomorphic-dompurify";
 
 interface Props {
   slug: string;
@@ -91,16 +91,12 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
   const formatWeeksFromMilliseconds = (ms: number) => {
     let secs = Math.floor(ms / 1000);
-
     const weeks = Math.floor(secs / 604800);
     secs %= 604800;
-
     const days = Math.floor(secs / 86400);
     secs %= 86400;
-
     const hours = Math.floor(secs / 3600);
     secs %= 3600;
-
     const minutes = Math.floor(secs / 60);
     secs %= 60;
 
@@ -146,7 +142,6 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
     ).getDate();
 
     res.setDate(Math.min(day, lastDay));
-
     return res;
   };
 
@@ -171,9 +166,7 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
     while (true) {
       const next = addCalendarDays(cursor, 1);
-
       if (next > end) break;
-
       cursor = next;
       days++;
     }
@@ -571,23 +564,18 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
     setDurSt("00:00");
     setDurEd("");
     setDurEt("00:00");
-
     setAddSd("");
     setAddSt("00:00");
     setAddValue("");
-
     setDiffSd("");
     setDiffEd("");
-
     setBetSd("");
     setBetEd("");
     setBetPercentage("");
-
     setBetTimeSd("");
     setBetTimeSt("00:00");
     setBetTimeEd("");
     setBetTimeEt("00:00");
-
     setErrorMsg("");
     setResultItems(null);
   };
@@ -601,7 +589,6 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
     navigator.clipboard.writeText(text);
     setCopied(true);
-
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -628,7 +615,7 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
       />
 
       <div className="date-and-time1-wrapper">
-        {/* H1: Exactly one H1 per URL */}
+        {/* H1 */}
         <h1 className="date-and-time1-h1">
           {config.h1Title}
         </h1>
@@ -674,10 +661,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
           <div className="date-and-time1-section">
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="durSd"
+                >
                   Start Date
                 </label>
                 <input
+                  id="durSd"
                   type="date"
                   className="date-and-time1-input"
                   value={durSd}
@@ -686,10 +677,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="durSt"
+                >
                   Start Time
                 </label>
                 <input
+                  id="durSt"
                   type="time"
                   className="date-and-time1-input"
                   value={durSt}
@@ -700,10 +695,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="durEd"
+                >
                   End Date
                 </label>
                 <input
+                  id="durEd"
                   type="date"
                   className="date-and-time1-input"
                   value={durEd}
@@ -712,10 +711,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="durEt"
+                >
                   End Time
                 </label>
                 <input
+                  id="durEt"
                   type="time"
                   className="date-and-time1-input"
                   value={durEt}
@@ -731,10 +734,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
           <div className="date-and-time1-section">
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="addSd"
+                >
                   Start Date
                 </label>
                 <input
+                  id="addSd"
                   type="date"
                   className="date-and-time1-input"
                   value={addSd}
@@ -743,10 +750,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="addSt"
+                >
                   Start Time
                 </label>
                 <input
+                  id="addSt"
                   type="time"
                   className="date-and-time1-input"
                   value={addSt}
@@ -756,10 +767,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
             </div>
 
             <div className="date-and-time1-group">
-              <label className="date-and-time1-label">
+              <label
+                className="date-and-time1-label"
+                htmlFor="addOperation"
+              >
                 Operation
               </label>
               <select
+                id="addOperation"
                 className="date-and-time1-select"
                 value={addOperation}
                 onChange={(e) => setAddOperation(e.target.value)}
@@ -771,10 +786,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="addValue"
+                >
                   Duration Value
                 </label>
                 <input
+                  id="addValue"
                   type="number"
                   className="date-and-time1-input"
                   placeholder="Enter duration"
@@ -784,10 +803,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="addUnit"
+                >
                   Duration Unit
                 </label>
                 <select
+                  id="addUnit"
                   className="date-and-time1-select"
                   value={addUnit}
                   onChange={(e) => setAddUnit(e.target.value)}
@@ -809,10 +832,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
           <div className="date-and-time1-section">
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="diffSd"
+                >
                   Start Date
                 </label>
                 <input
+                  id="diffSd"
                   type="date"
                   className="date-and-time1-input"
                   value={diffSd}
@@ -821,10 +848,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="diffEd"
+                >
                   End Date
                 </label>
                 <input
+                  id="diffEd"
                   type="date"
                   className="date-and-time1-input"
                   value={diffEd}
@@ -840,10 +871,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
           <div className="date-and-time1-section">
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="betSd"
+                >
                   Start Date
                 </label>
                 <input
+                  id="betSd"
                   type="date"
                   className="date-and-time1-input"
                   value={betSd}
@@ -852,10 +887,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="betEd"
+                >
                   End Date
                 </label>
                 <input
+                  id="betEd"
                   type="date"
                   className="date-and-time1-input"
                   value={betEd}
@@ -865,10 +904,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
             </div>
 
             <div className="date-and-time1-group">
-              <label className="date-and-time1-label">
+              <label
+                className="date-and-time1-label"
+                htmlFor="betType"
+              >
                 Calculation Type
               </label>
               <select
+                id="betType"
                 className="date-and-time1-select"
                 value={betType}
                 onChange={(e) => setBetType(e.target.value)}
@@ -882,10 +925,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
             {betType === "percentage" && (
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="betPercentage"
+                >
                   Percentage (0–100)
                 </label>
                 <input
+                  id="betPercentage"
                   type="number"
                   className="date-and-time1-input"
                   placeholder="Enter percentage"
@@ -904,10 +951,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
           <div className="date-and-time1-section">
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="betTimeSd"
+                >
                   Start Date
                 </label>
                 <input
+                  id="betTimeSd"
                   type="date"
                   className="date-and-time1-input"
                   value={betTimeSd}
@@ -916,10 +967,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="betTimeSt"
+                >
                   Start Time
                 </label>
                 <input
+                  id="betTimeSt"
                   type="time"
                   className="date-and-time1-input"
                   value={betTimeSt}
@@ -930,10 +985,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
             <div className="date-and-time1-row">
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="betTimeEd"
+                >
                   End Date
                 </label>
                 <input
+                  id="betTimeEd"
                   type="date"
                   className="date-and-time1-input"
                   value={betTimeEd}
@@ -942,10 +1001,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
               </div>
 
               <div className="date-and-time1-group">
-                <label className="date-and-time1-label">
+                <label
+                  className="date-and-time1-label"
+                  htmlFor="betTimeEt"
+                >
                   End Time
                 </label>
                 <input
+                  id="betTimeEt"
                   type="time"
                   className="date-and-time1-input"
                   value={betTimeEt}
@@ -955,10 +1018,14 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
             </div>
 
             <div className="date-and-time1-group">
-              <label className="date-and-time1-label">
+              <label
+                className="date-and-time1-label"
+                htmlFor="betTimeInclude"
+              >
                 End Date Option
               </label>
               <select
+                id="betTimeInclude"
                 className="date-and-time1-select"
                 value={betTimeInclude}
                 onChange={(e) =>
@@ -972,18 +1039,19 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
           </div>
         )}
 
+        {/* ERROR MESSAGE */}
         {errorMsg && (
           <div className="date-and-time1-error">
             {errorMsg}
           </div>
         )}
 
-        {/* RESULT: H3 */}
+        {/* RESULT */}
         {resultItems && (
           <div className="date-and-time1-result">
-            <h3 className="date-and-time1-result-title">
+            <h2 className="date-and-time1-result-title">
               Calculation Result
-            </h3>
+            </h2>
 
             {resultItems.map((item, idx) => (
               <div className="date-and-time1-item" key={idx}>
@@ -1012,21 +1080,54 @@ export default function DateAndTimeDurationCalculator({ slug }: Props) {
 
         {/* ARTICLE SECTION */}
         <div className="date-and-time1-article">
-          {/* H2 */}
+          {/* Dynamic Tool Image - Lazy Loaded */}
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "800px",
+              margin: "30px auto",
+              textAlign: "center",
+            }}
+          >
+            <img
+              src={`/images/date-and-time/${slug}.webp`}
+              alt={config.h1Title}
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              style={{
+                display: "block",
+                width: "100%",
+                height: "auto",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
+
+          {/* Article H2 */}
           <h2>{config.article.title}</h2>
 
-          {/* All article subsections are H3 */}
+          {/* Article Sections with Working HTML Links */}
           {config.article.sections.map((sec, idx) => (
             <div key={idx}>
-              <h3>{sec.heading}</h3>
-              <p>{sec.content}</p>
+              <h2>{sec.heading}</h2>
+              <p
+                style={{
+                  fontSize: "0.95rem",
+                  lineHeight: "1.6",
+                  color: "#020220",
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(sec.content),
+                }}
+              />
             </div>
           ))}
         </div>
 
         {/* FAQ SECTION */}
         <div className="date-and-time1-faq-section">
-          {/* H2 */}
           <h2>Frequently Asked Questions</h2>
 
           {config.faqs.map((faq, index) => {
