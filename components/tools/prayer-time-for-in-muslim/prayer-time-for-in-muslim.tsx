@@ -24,8 +24,50 @@ type PrayerItem = {
   time: Date;
 };
 
+// Default location: Makkah, Saudi Arabia
+const DEFAULT_LOCATION: LocationData = {
+  latitude: 21.42664,
+  longitude: 39.82563,
+  city: "Makkah",
+  country: "Saudi Arabia",
+};
+
+// Format Full Hijri Date for the 30-day schedule
+const formatScheduleHijriDate = (dateString: string) => {
+  const [year, month, day] = dateString
+    .split("-")
+    .map(Number);
+
+  const date = new Date(year, month - 1, day, 12);
+
+  const hijriParts = new Intl.DateTimeFormat(
+    "en-US-u-ca-islamic-umalqura",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  ).formatToParts(date);
+
+  const hijriDay = hijriParts.find(
+    (part) => part.type === "day"
+  )?.value;
+
+  const hijriMonth = hijriParts.find(
+    (part) => part.type === "month"
+  )?.value;
+
+  const hijriYear = hijriParts.find(
+    (part) => part.type === "year"
+  )?.value;
+
+  return `${hijriDay} ${hijriMonth} ${hijriYear} AH`;
+};
+
 export default function PrayerTimeForInMuslim() {
-  const [location, setLocation] = useState<LocationData | null>(null);
+  const [location, setLocation] =
+    useState<LocationData>(DEFAULT_LOCATION);
+
   const [prayers, setPrayers] = useState<PrayerItem[]>([]);
   const [sunrise, setSunrise] = useState<Date | null>(null);
 
@@ -33,70 +75,125 @@ export default function PrayerTimeForInMuslim() {
     ReturnType<typeof get30DaySchedule>
   >([]);
 
-  const [nextPrayer, setNextPrayer] = useState<PrayerItem | null>(null);
-  const [nextDayPrayers, setNextDayPrayers] = useState<PrayerItem[]>([]);
+  const [nextPrayer, setNextPrayer] =
+    useState<PrayerItem | null>(null);
+
+  const [nextDayPrayers, setNextDayPrayers] =
+    useState<PrayerItem[]>([]);
+
   const [countdown, setCountdown] = useState("");
   const [now, setNow] = useState(new Date());
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
   const [hanafi, setHanafi] = useState(false);
 
-  const getLocation = useCallback(() => {
-    setLoading(true);
-    setError("");
+  // Do not show a location-detection message on initial page load.
+  const [detectingLocation, setDetectingLocation] =
+    useState(false);
 
+  const [locationMessage, setLocationMessage] = useState(
+    "Showing default prayer times for Makkah, Saudi Arabia."
+  );
+
+  const [locationType, setLocationType] = useState<
+    "default" | "current"
+  >("default");
+
+  // Detect user's actual location
+  const getLocation = useCallback((showStatus = true) => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser.");
-      setLoading(false);
+      setDetectingLocation(false);
+      setLocation(DEFAULT_LOCATION);
+      setLocationType("default");
+
+      setLocationMessage(
+        "Location is not supported by your browser. Showing prayer times for Makkah, Saudi Arabia."
+      );
+
       return;
     }
 
+    // Only show the loading state when the user manually refreshes.
+    if (showStatus) {
+      setDetectingLocation(true);
+      setLocationMessage("Updating your current location...");
+    }
+
     navigator.geolocation.getCurrentPosition(
-      async (position) => {
+      (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        let city = "Your Location";
-        let country = "";
-
-        try {
-          const response = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
-          );
-
-          if (response.ok) {
-            const data = await response.json();
-            const address = data.address || {};
-
-            city =
-              address.city ||
-              address.town ||
-              address.village ||
-              address.suburb ||
-              address.county ||
-              "Your Location";
-
-            country = address.country || "";
-          }
-        } catch {
-          // Location coordinates remain usable.
-        }
-
+        // Update prayer calculations immediately using GPS coordinates.
+        // Do not wait for reverse geocoding.
         setLocation({
           latitude,
           longitude,
-          city,
-          country,
+          city: "Your Location",
+          country: "",
         });
 
-        setLoading(false);
-      },
-      () => {
-        setError(
-          "Location access denied. Please allow location permission and try again."
+        setLocationType("current");
+        setDetectingLocation(false);
+
+        setLocationMessage(
+          "Prayer times are calculated for your current location."
         );
-        setLoading(false);
+
+        // Find the city and country name separately.
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}&zoom=12&accept-language=en`
+        )
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Unable to find location name");
+            }
+
+            return response.json();
+          })
+          .then((data) => {
+  const address = data.address || {};
+
+  const city =
+    address.city ||
+    address.town ||
+    address.village ||
+    address.municipality ||
+    address.city_district ||
+    address.suburb ||
+    address.locality ||
+    address.county ||
+    address.state_district ||
+    address.hamlet ||
+    address.neighbourhood ||
+    address.state ||
+    data.name ||
+    "Your Location";
+
+  const country = address.country || "";
+
+  setLocation({
+    latitude,
+    longitude,
+    city,
+    country,
+  });
+          })
+          .catch(() => {
+            // Prayer calculations continue using GPS coordinates.
+          });
       },
+
+      () => {
+        // If location access is denied or unavailable,
+        // use Makkah as the default location.
+        setLocation(DEFAULT_LOCATION);
+        setLocationType("default");
+        setDetectingLocation(false);
+
+        setLocationMessage(
+          "Location access is unavailable. Showing default prayer times for Makkah, Saudi Arabia."
+        );
+      },
+
       {
         enableHighAccuracy: false,
         timeout: 15000,
@@ -105,13 +202,19 @@ export default function PrayerTimeForInMuslim() {
     );
   }, []);
 
+  // Automatically detect location when the page opens.
+  // No visible loading message is shown during initial detection.
   useEffect(() => {
-    getLocation();
+    getLocation(false);
   }, [getLocation]);
 
+  // Update browser title based on the current location.
   useEffect(() => {
-    if (!location) return;
+    document.title = `Prayer Time for Muslim | Namaz Time in ${location.city}`;
+  }, [location.city]);
 
+  // Generate 30-day prayer schedule.
+  useEffect(() => {
     setSchedule(
       get30DaySchedule(
         location.latitude,
@@ -121,11 +224,11 @@ export default function PrayerTimeForInMuslim() {
     );
   }, [location, hanafi]);
 
+  // Calculate daily prayer times and countdown.
   useEffect(() => {
-    if (!location) return;
-
     const update = () => {
       const current = new Date();
+
       setNow(current);
 
       const coordinates = new Coordinates(
@@ -146,6 +249,7 @@ export default function PrayerTimeForInMuslim() {
       );
 
       const tomorrow = new Date(current);
+
       tomorrow.setDate(tomorrow.getDate() + 1);
 
       const tomorrowTimes = new PrayerTimes(
@@ -174,7 +278,7 @@ export default function PrayerTimeForInMuslim() {
       setSunrise(todayTimes.sunrise);
       setNextDayPrayers(tomorrowPrayers);
 
-      // Wait one full hour after Isha before showing next Fajr.
+      // Wait one hour after Isha before showing next Fajr.
       const ishaGraceEnd = new Date(
         todayTimes.isha.getTime() + 60 * 60 * 1000
       );
@@ -184,9 +288,12 @@ export default function PrayerTimeForInMuslim() {
       if (current.getTime() < todayTimes.isha.getTime()) {
         next =
           allPrayers.find(
-            (item) => item.time.getTime() > current.getTime()
+            (item) =>
+              item.time.getTime() > current.getTime()
           ) || null;
-      } else if (current.getTime() >= ishaGraceEnd.getTime()) {
+      } else if (
+        current.getTime() >= ishaGraceEnd.getTime()
+      ) {
         next = tomorrowPrayers[0];
       }
 
@@ -200,7 +307,9 @@ export default function PrayerTimeForInMuslim() {
       const difference =
         next.time.getTime() - current.getTime();
 
-      const hours = Math.floor(difference / 3600000);
+      const hours = Math.floor(
+        difference / 3600000
+      );
 
       const minutes = Math.floor(
         (difference % 3600000) / 60000
@@ -220,13 +329,17 @@ export default function PrayerTimeForInMuslim() {
 
       if (minutes > 0) {
         countdownParts.push(
-          `${minutes} ${minutes === 1 ? "Minute" : "Minutes"}`
+          `${minutes} ${
+            minutes === 1 ? "Minute" : "Minutes"
+          }`
         );
       }
 
       if (seconds > 0) {
         countdownParts.push(
-          `${seconds} ${seconds === 1 ? "Second" : "Seconds"}`
+          `${seconds} ${
+            seconds === 1 ? "Second" : "Seconds"
+          }`
         );
       }
 
@@ -244,6 +357,7 @@ export default function PrayerTimeForInMuslim() {
     return () => clearInterval(interval);
   }, [location, hanafi]);
 
+  // Format time.
   const formatTime = (date: Date) =>
     date.toLocaleTimeString("en-US", {
       hour: "2-digit",
@@ -251,6 +365,7 @@ export default function PrayerTimeForInMuslim() {
       hour12: true,
     });
 
+  // Format date.
   const formatDate = (date: Date) =>
     date.toLocaleDateString("en-US", {
       weekday: "long",
@@ -276,47 +391,81 @@ export default function PrayerTimeForInMuslim() {
     }
   ).format(now);
 
-  if (loading) {
-    return (
-      <div className="prayer-time1">
-        <p className="prayer-time-loading">
-          Detecting your location...
-        </p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="prayer-time1">
-        <p className="prayer-time-error">{error}</p>
-
-        <button
-          className="prayer-time-button"
-          onClick={getLocation}
-        >
-          Try Again
-        </button>
-      </div>
-    );
-  }
-
   return (
     <main className="prayer-time1">
+      {/* Main Heading */}
       <header className="prayer-time2">
         <h1>
-          Prayer Time for Muslim | Namaz Time in All Countries Today
+          Prayer Time for Muslim | Namaz Time in {location.city}
         </h1>
 
         <p>
           Accurate Muslim prayer times for your current location.
+          Check today's Namaz time, upcoming prayers and the
+          complete 30-day prayer schedule.
         </p>
 
-        {location && (
-          <div className="prayer-time-location">
-            📍 {location.city}, {location.country}
-          </div>
-        )}
+        {/* Current Location */}
+        <div className="prayer-time-location">
+          📍 {location.city}
+          {location.country ? `, ${location.country}` : ""}
+        </div>
+
+        {/* Tool Image - Lazy Loaded */}
+{locationType === "default" && (
+  <div
+    style={{
+      width: "100%",
+      maxWidth: "1200px",
+      margin: "30px auto",
+      textAlign: "center"
+    }}
+  >
+    <img
+      src="/images/prayer-time-location.webp"
+      alt="Muslim Prayer Times and Location Guide"
+      width="1200"
+      height="675"
+      loading="lazy"
+      decoding="async"
+      style={{
+        display: "block",
+        width: "100%",
+        height: "auto",
+        borderRadius: "10px"
+      }}
+    />
+  </div>
+)}
+
+       {/* Location Information */}
+<div
+  className="prayer-time-location-status"
+  aria-live="polite"
+>
+  {locationType === "default" && !detectingLocation && (
+    <p className="prayer-time-location-alert">
+      Location access is unavailable. Turn on the location
+      of your device and see the exact prayer schedule.
+    </p>
+  )}
+
+  {locationType === "current" && (
+    <p>{locationMessage}</p>
+  )}
+
+{locationType === "default" && (
+  <button
+    className="prayer-time-button"
+    onClick={() => getLocation(true)}
+    disabled={detectingLocation}
+  >
+    {detectingLocation
+      ? "Updating Location..."
+      : "Use My Current Location"}
+  </button>
+)}
+</div>
       </header>
 
       {/* Prayer Calculation Method */}
@@ -327,8 +476,11 @@ export default function PrayerTimeForInMuslim() {
           <input
             type="checkbox"
             checked={hanafi}
-            onChange={(e) => setHanafi(e.target.checked)}
+            onChange={(e) =>
+              setHanafi(e.target.checked)
+            }
           />
+
           Hanafi Asr Calculation
         </label>
 
@@ -375,13 +527,7 @@ export default function PrayerTimeForInMuslim() {
               {hijriDate}
             </p>
           </div>
-
-          <button
-            className="prayer-time-button"
-            onClick={getLocation}
-          >
-            Refresh Location
-          </button>
+          
         </div>
 
         <div className="prayer-time-grid">
@@ -425,7 +571,8 @@ export default function PrayerTimeForInMuslim() {
 
                 {isNext ? (
                   <p>Next Prayer</p>
-                ) : passedMoreThan30Minutes && tomorrowPrayer ? (
+                ) : passedMoreThan30Minutes &&
+                  tomorrowPrayer ? (
                   <div className="prayer-time-upcoming">
                     <span>Upcoming Prayer</span>
 
@@ -436,7 +583,9 @@ export default function PrayerTimeForInMuslim() {
                     </span>
 
                     <small>
-                      {formatUpcomingDate(tomorrowPrayer.time)}
+                      {formatUpcomingDate(
+                        tomorrowPrayer.time
+                      )}
                     </small>
                   </div>
                 ) : passed ? (
@@ -469,17 +618,17 @@ export default function PrayerTimeForInMuslim() {
       <section className="prayer-time9">
         <h2>
           30 Day Prayer Time Schedule for{" "}
-          {location?.city}
-          {location?.country
+          {location.city}
+          {location.country
             ? `, ${location.country}`
             : ""}
         </h2>
 
         <p>
           View the complete 30-day prayer schedule
-          calculated for your location in{" "}
-          {location?.city}
-          {location?.country
+          calculated for your selected location in{" "}
+          {location.city}
+          {location.country
             ? `, ${location.country}`
             : ""}.
         </p>
@@ -490,18 +639,21 @@ export default function PrayerTimeForInMuslim() {
               className="prayer-time-day"
               key={day.date}
             >
-              <div className="prayer-time-day-heading">
-                <span>Prayer</span>
+             <div className="prayer-time-day-heading">
+  <span>Prayer</span>
 
-                <span>
-                  {day.month}{" "}
-                  {Number(day.date.slice(8, 10))},{" "}
-                  {day.date.slice(0, 4)}
-                </span>
+  <span>
+    {day.month}{" "}
+    {Number(day.date.slice(8, 10))},{" "}
+    {day.date.slice(0, 4)}
+  </span>
 
-                <strong>{day.weekday}</strong>
-              </div>
+  <strong>{day.weekday}</strong>
 
+  <small className="prayer-time-hijri-schedule">
+    ({formatScheduleHijriDate(day.date)})
+  </small>
+</div>
               <div className="prayer-time-table-wrapper">
                 <table className="prayer-time-table">
                   <thead>
@@ -558,6 +710,7 @@ export default function PrayerTimeForInMuslim() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="prayer-time-footer">
         <p>
           Prayer times are calculated locally using the

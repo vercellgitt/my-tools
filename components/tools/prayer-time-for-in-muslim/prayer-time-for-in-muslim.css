@@ -487,9 +487,69 @@
 /* Sunrise Card */
 .prayer-time-sunrise {
   border: 1px solid #f0c36d;
-  background: #fffaf0;
+  background: #fffefe;
 }
 
 .prayer-time-sunrise .prayer-time-card-name {
-  color: #b7791f;
+  color: #101755;
+}
+
+
+/* Location Status */
+.prayer-time1 .prayer-time-location-status {
+  margin: 12px auto 20px;
+  text-align: center;
+  max-width: 650px;
+}
+
+.prayer-time1 .prayer-time-location-status p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.prayer-time1 .prayer-time-location-status button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* Animated Location Permission Alert */
+.prayer-time-location-alert {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #040900;
+  text-align: center;
+  margin: 12px auto;
+  display: block;
+  transform-origin: center;
+  animation: prayerLocationPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes prayerLocationPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .prayer-time-location-alert {
+    animation: none;
+  }
+}
+
+
+.prayer-time-hijri-schedule {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-left: 3px;
 }

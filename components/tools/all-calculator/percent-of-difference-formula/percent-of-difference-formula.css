@@ -233,3 +233,16 @@
     font-size: 22px;
   }
 }
+
+/* Article Internal & External Links */
+.change-formula21 a {
+color: #2563eb !important;
+font-weight: 700 !important;
+text-decoration: none !important;
+transition: color 0.2s ease;
+}
+
+.change-formula21 a:hover {
+color: #7c3aed !important;
+text-decoration: underline !important;
+}

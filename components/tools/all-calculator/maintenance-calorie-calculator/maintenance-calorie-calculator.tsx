@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import "./maintenance-calorie-calculator.css";
 import { maintenanceCalorieFaqs } from "./faq";
+import DOMPurify from "isomorphic-dompurify";
 
 export default function MaintenanceCalorieCalculator() {
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
@@ -119,40 +120,8 @@ export default function MaintenanceCalorieCalculator() {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
-  // Structured Data Schema Markup (JSON-LD)
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "Maintenance Calorie Calculator",
-        "url": "https://yourdomain.com/maintenance-calorie-calculator",
-        "applicationCategory": "HealthApplication",
-        "operatingSystem": "All",
-        "description":
-          "Calculate your daily maintenance calorie needs with precision. Estimate BMR, TDEE, and weight management caloric intake targets easily."
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": maintenanceCalorieFaqs.map((faq) => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
-      }
-    ]
-  };
-
   return (
     <div className="maintenance-calorie1">
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
 
       {/* Main Interactive Tool */}
       <div className="maintenance-calorie2">
@@ -391,6 +360,33 @@ export default function MaintenanceCalorieCalculator() {
         <p className="maintenance-calorie21">
           For Females: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) − 161
         </p>
+       
+       {/* Internal and External Links */}
+<div className="maintenance-calorie21 maintenance-links">
+  <p className="maintenance-links-title">
+    You may also find these useful tools and guides:
+  </p>
+
+  <p
+    className="maintenance-links-list"
+    dangerouslySetInnerHTML={{
+      __html: DOMPurify.sanitize(`
+        <a href="/how-to-calculate-percentage-of-difference">How to Calculate Percentage of Difference</a>
+        <a href="/date-and-time-calculator-between-two-dates">Date and Time Calculator Between Two Dates</a>
+        <a href="/date-and-time-duration-calculator">Date and Time Duration Calculator</a>
+        <a href="/percent-of-difference-formula">Percent of Difference Formula</a>
+      `)
+    }}
+  />
+
+  <p className="maintenance-links-title">
+    For additional information about healthy weight management, visit the
+    <a href="https://www.niddk.nih.gov/bwp" target="_blank" rel="noopener noreferrer">
+      NIDDK Body Weight Planner
+    </a>.
+  </p>
+</div>
+
 
         {/* Dynamic Accordion FAQ Section */}
         <div className="maintenance-calorie22">

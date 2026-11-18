@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { percentFormulaConfig } from "./faq";
 import "./percent-of-difference-formula.css";
+import DOMPurify from "isomorphic-dompurify";
 
 interface ToolProps {
   slug: string;
@@ -290,9 +291,13 @@ export default function PercentOfDifferenceFormulaTool({ slug }: ToolProps) {
           {currentConfig.article.sections.map((sec, idx) => (
             <div key={idx} style={{ marginTop: "15px" }}>
               {sec.level === "h2" && <h2 className="change-formula18">{sec.heading}</h2>}
-              {sec.level === "h3" && <h3 className="change-formula19">{sec.heading}</h3>}
-              {sec.level === "h4" && <h4 className="change-formula20">{sec.heading}</h4>}
-              <p className="change-formula21" style={{ marginTop: "5px" }}>{sec.content}</p>
+             <p
+  className="change-formula21"
+  style={{ marginTop: "5px" }}
+  dangerouslySetInnerHTML={{
+    __html: DOMPurify.sanitize(sec.content)
+  }}
+/>
             </div>
           ))}
         </div>

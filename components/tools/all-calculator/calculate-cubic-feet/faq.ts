@@ -13,7 +13,7 @@ export interface SlugConfig {
     title: string;
     sections: {
       heading: string;
-      level: "h2" | "h3" | "h4";
+      level: "h2" ;
       content: string;
     }[];
   };
@@ -37,12 +37,12 @@ export const cubicToolsConfig: Record<string, SlugConfig> = {
         },
         {
           heading: "How to Measure and Calculate",
-          level: "h3",
+          level: "h2",
           content: "To find the cubic feet, multiply the length, width, and height of an object measured in feet. If measured in other units like inches, convert them to feet first."
         },
         {
           heading: "Practical Applications",
-          level: "h4",
+          level: "h2",
           content: "Calculating cubic feet is essential for shipping, packaging, estimating storage units, and ordering construction materials like concrete or mulch."
         }
       ]
@@ -112,7 +112,7 @@ export const cubicToolsConfig: Record<string, SlugConfig> = {
         },
         {
           heading: "Quick Conversion Formula",
-          level: "h3",
+          level: "h2",
           content: "Divide the total cubic feet by 27 to get the equivalent measurement in cubic yards."
         }
       ]
@@ -182,7 +182,7 @@ export const cubicToolsConfig: Record<string, SlugConfig> = {
         },
         {
           heading: "Volume of a Cylinder",
-          level: "h3",
+          level: "h2",
           content: "The volume of a cylinder is calculated using the formula pi times radius squared times height (πr²h)."
         }
       ]
@@ -252,7 +252,7 @@ export const cubicToolsConfig: Record<string, SlugConfig> = {
         },
         {
           heading: "How CFM is Calculated",
-          level: "h3",
+          level: "h2",
           content: "Divide the total cubic volume of space by the time in minutes required to circulate or exhaust the air."
         }
       ]

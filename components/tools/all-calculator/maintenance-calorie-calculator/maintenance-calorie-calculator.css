@@ -247,3 +247,36 @@
     padding: 14px 16px;
   }
 }
+
+
+
+/* Article Internal & External Links */
+.maintenance-links-title {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 8px 0;
+  color: #01010c;
+}
+
+.maintenance-links-list {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #040441;
+}
+
+.maintenance-links a {
+  display: block;
+  color: #2563eb !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.maintenance-links a:hover {
+  color: #7c3aed !important;
+  text-decoration: underline !important;
+}

@@ -1,21 +1,25 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { cubicToolsConfig } from "./faq";
 import "./calculate-cubic-feet.css";
+import DOMPurify from "isomorphic-dompurify";
 
 interface ToolProps {
   slug?: string;
 }
 
-export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }: ToolProps) {
+export default function CalculateCubicFeetTool({
+  slug = "calculate-cubic-feet",
+}: ToolProps) {
   const router = useRouter();
 
   const tabSlugs = [
     "calculate-cubic-feet",
     "cubic-feet-to-cubic-yard",
     "cubic-calculator",
-    "cubic-feet-per-minute-calculator"
+    "cubic-feet-per-minute-calculator",
   ];
 
   const getTabIdxFromSlug = (s: string) => {
@@ -24,15 +28,15 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
   };
 
   const [activeTab, setActiveTab] = useState(getTabIdxFromSlug(slug));
-
   const activeSlug = tabSlugs[activeTab];
 
   const currentConfig =
     cubicToolsConfig[activeSlug] ||
     cubicToolsConfig["calculate-cubic-feet"];
+
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-  // States for Calculator 1
+  // Calculator 1 States
   const [cfLength, setCfLength] = useState("");
   const [cfWidth, setCfWidth] = useState("");
   const [cfHeight, setCfHeight] = useState("");
@@ -45,7 +49,7 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     yards: number;
   } | null>(null);
 
-  // States for Calculator 2
+  // Calculator 2 States
   const [cftyInput, setCftyInput] = useState("");
 
   const [cftyRes, setCftyRes] = useState<{
@@ -55,7 +59,7 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     meters: number;
   } | null>(null);
 
-  // States for Calculator 3
+  // Calculator 3 States
   const [ccShape, setCcShape] = useState("cube");
   const [ccLength, setCcLength] = useState("");
   const [ccWidth, setCcWidth] = useState("");
@@ -70,7 +74,7 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     meters: number;
   } | null>(null);
 
-  // States for Calculator 4
+  // Calculator 4 States
   const [cfmVol, setCfmVol] = useState("");
   const [cfmTime, setCfmTime] = useState("");
   const [cfmTimeUnit, setCfmTimeUnit] = useState("minutes");
@@ -85,24 +89,30 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     setActiveTab(getTabIdxFromSlug(slug));
   }, [slug]);
 
- const switchTab = (index: number) => {
-  setActiveTab(index);
-  setOpenFaqIndex(null);
-  router.push(`/${tabSlugs[index]}`);
-};
+  const switchTab = (index: number) => {
+    setActiveTab(index);
+    setOpenFaqIndex(null);
+    router.push(`/${tabSlugs[index]}`);
+  };
 
+  // Unit Conversion
   const convertToFeet = (value: number, unit: string) => {
     switch (unit) {
-      case "inches": return value / 12;
-      case "centimeters": return value / 30.48;
-      case "meters": return value * 3.28084;
-      case "yards": return value * 3;
+      case "inches":
+        return value / 12;
+      case "centimeters":
+        return value / 30.48;
+      case "meters":
+        return value * 3.28084;
+      case "yards":
+        return value * 3;
       case "feet":
-      default: return value;
+      default:
+        return value;
     }
   };
 
-  // Calc 1 Logic
+  // Calculator 1 Logic
   const lVal = parseFloat(cfLength);
   const wVal = parseFloat(cfWidth);
   const hVal = parseFloat(cfHeight);
@@ -111,11 +121,12 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
   const isWValid = !isNaN(wVal) && wVal > 0;
   const isHValid = !isNaN(hVal) && hVal > 0;
 
-  const isCfTouched = cfLength !== "" || cfWidth !== "" || cfHeight !== "";
+  const isCfTouched =
+    cfLength !== "" || cfWidth !== "" || cfHeight !== "";
 
-  const showCfWarnL = isCfTouched && (!isLValid);
-  const showCfWarnW = isCfTouched && (!isWValid);
-  const showCfWarnH = isCfTouched && (!isHValid);
+  const showCfWarnL = isCfTouched && !isLValid;
+  const showCfWarnW = isCfTouched && !isWValid;
+  const showCfWarnH = isCfTouched && !isHValid;
 
   useEffect(() => {
     if (isLValid && isWValid && isHValid) {
@@ -134,10 +145,22 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     } else {
       setCfRes(null);
     }
-  }, [cfLength, cfWidth, cfHeight, cfUnit, isLValid, isWValid, isHValid, lVal, wVal, hVal]);
+  }, [
+    cfLength,
+    cfWidth,
+    cfHeight,
+    cfUnit,
+    isLValid,
+    isWValid,
+    isHValid,
+    lVal,
+    wVal,
+    hVal,
+  ]);
 
-  // Calc 2 Logic
+  // Calculator 2 Logic
   const cftyVal = parseFloat(cftyInput);
+
   const isCftyValid = !isNaN(cftyVal) && cftyVal >= 0;
   const showCftyWarn = cftyInput !== "" && !isCftyValid;
 
@@ -156,20 +179,25 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     }
   }, [cftyInput, isCftyValid, cftyVal]);
 
-  // Calc 3 Logic
+  // Calculator 3 Logic
   const v1 = parseFloat(ccLength);
   const v2 = parseFloat(ccWidth) || 0;
   const v3 = parseFloat(ccHeight) || 0;
 
   const isCc1Valid = !isNaN(v1) && v1 > 0;
-  const isCc2Valid = ccShape !== "rectangular" || (!isNaN(v2) && v2 > 0);
-  const isCc3Valid = ccShape === "cube" || (!isNaN(v3) && v3 > 0);
+  const isCc2Valid =
+    ccShape !== "rectangular" || (!isNaN(v2) && v2 > 0);
+  const isCc3Valid =
+    ccShape === "cube" || (!isNaN(v3) && v3 > 0);
 
-  const isCcTouched = ccLength !== "" || ccWidth !== "" || ccHeight !== "";
+  const isCcTouched =
+    ccLength !== "" || ccWidth !== "" || ccHeight !== "";
 
   const showCcWarnL = isCcTouched && !isCc1Valid;
-  const showCcWarnW = ccShape === "rectangular" && isCcTouched && !isCc2Valid;
-  const showCcWarnH = ccShape !== "cube" && isCcTouched && !isCc3Valid;
+  const showCcWarnW =
+    ccShape === "rectangular" && isCcTouched && !isCc2Valid;
+  const showCcWarnH =
+    ccShape !== "cube" && isCcTouched && !isCc3Valid;
 
   useEffect(() => {
     if (isCc1Valid && isCc2Valid && isCc3Valid) {
@@ -185,10 +213,15 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
 
       let cubicFeet = 0;
 
-      if (ccUnit === "inches") cubicFeet = volumeBase / 1728;
-      else if (ccUnit === "feet") cubicFeet = volumeBase;
-      else if (ccUnit === "centimeters") cubicFeet = volumeBase / 28316.8466;
-      else if (ccUnit === "meters") cubicFeet = volumeBase * 35.3147;
+      if (ccUnit === "inches") {
+        cubicFeet = volumeBase / 1728;
+      } else if (ccUnit === "feet") {
+        cubicFeet = volumeBase;
+      } else if (ccUnit === "centimeters") {
+        cubicFeet = volumeBase / 28316.8466;
+      } else if (ccUnit === "meters") {
+        cubicFeet = volumeBase * 35.3147;
+      }
 
       setCcRes({
         volume: volumeBase,
@@ -200,9 +233,21 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     } else {
       setCcRes(null);
     }
-  }, [ccShape, ccLength, ccWidth, ccHeight, ccUnit, isCc1Valid, isCc2Valid, isCc3Valid, v1, v2, v3]);
+  }, [
+    ccShape,
+    ccLength,
+    ccWidth,
+    ccHeight,
+    ccUnit,
+    isCc1Valid,
+    isCc2Valid,
+    isCc3Valid,
+    v1,
+    v2,
+    v3,
+  ]);
 
-  // Calc 4 Logic
+  // Calculator 4 Logic
   const volVal = parseFloat(cfmVol);
   const timeVal = parseFloat(cfmTime);
 
@@ -215,11 +260,19 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
   const showCfmWarnTime = isCfmTouched && !isTimeValid;
 
   useEffect(() => {
-    if (isVolValid && isTimeValid && cfmVol !== "" && cfmTime !== "") {
+    if (
+      isVolValid &&
+      isTimeValid &&
+      cfmVol !== "" &&
+      cfmTime !== ""
+    ) {
       let cfm = 0;
 
-      if (cfmTimeUnit === "minutes") cfm = volVal / timeVal;
-      else if (cfmTimeUnit === "seconds") cfm = (volVal / timeVal) * 60;
+      if (cfmTimeUnit === "minutes") {
+        cfm = volVal / timeVal;
+      } else if (cfmTimeUnit === "seconds") {
+        cfm = (volVal / timeVal) * 60;
+      }
 
       setCfmRes({
         min: cfm,
@@ -229,37 +282,80 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
     } else {
       setCfmRes(null);
     }
-  }, [cfmVol, cfmTime, cfmTimeUnit, isVolValid, isTimeValid, volVal, timeVal]);
+  }, [
+    cfmVol,
+    cfmTime,
+    cfmTimeUnit,
+    isVolValid,
+    isTimeValid,
+    volVal,
+    timeVal,
+  ]);
 
   return (
     <div className="cubic-wrapper-box">
 
-      <h1 className="cubic-main-h1">{currentConfig.h1Title}</h1>
+      <h1 className="cubic-main-h1">
+        {currentConfig.h1Title}
+      </h1>
 
-      <div className="cubic-tab-container">
-        <button className={`cubic-tab-btn ${activeTab === 0 ? "active" : ""}`} onClick={() => switchTab(0)}>
+      {/* Calculator Tabs */}
+      <div className="cubic-tab-container" role="tablist" aria-label="Cubic calculators">
+
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === 0}
+          className={`cubic-tab-btn ${activeTab === 0 ? "active" : ""}`}
+          onClick={() => switchTab(0)}
+        >
           Calculate Cubic Feet
         </button>
 
-        <button className={`cubic-tab-btn ${activeTab === 1 ? "active" : ""}`} onClick={() => switchTab(1)}>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === 1}
+          className={`cubic-tab-btn ${activeTab === 1 ? "active" : ""}`}
+          onClick={() => switchTab(1)}
+        >
           Cubic Feet to Yard
         </button>
 
-        <button className={`cubic-tab-btn ${activeTab === 2 ? "active" : ""}`} onClick={() => switchTab(2)}>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === 2}
+          className={`cubic-tab-btn ${activeTab === 2 ? "active" : ""}`}
+          onClick={() => switchTab(2)}
+        >
           Cubic Calculator
         </button>
 
-        <button className={`cubic-tab-btn ${activeTab === 3 ? "active" : ""}`} onClick={() => switchTab(3)}>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === 3}
+          className={`cubic-tab-btn ${activeTab === 3 ? "active" : ""}`}
+          onClick={() => switchTab(3)}
+        >
           CFM Calculator
         </button>
+
       </div>
 
       {/* 1. Calculate Cubic Feet */}
       <div className={`cubic-calculator-section ${activeTab === 0 ? "active" : ""}`}>
+
         <div className="cubic-row-inputs">
+
           <div className="cubic-form-group">
-            <label className="cubic-label">Length</label>
+            <label className="cubic-label" htmlFor="cf-length">
+              Length
+            </label>
+
             <input
+              id="cf-length"
               type="number"
               className="cubic-input"
               value={cfLength}
@@ -268,14 +364,22 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
               min="0"
               onChange={(e) => setCfLength(e.target.value)}
             />
-            <span className="cubic-warning-text" style={{ display: showCfWarnL ? "block" : "none" }}>
+
+            <span
+              className="cubic-warning-text"
+              style={{ display: showCfWarnL ? "block" : "none" }}
+            >
               Please complete your Length (positive value required)
             </span>
           </div>
 
           <div className="cubic-form-group">
-            <label className="cubic-label">Width</label>
+            <label className="cubic-label" htmlFor="cf-width">
+              Width
+            </label>
+
             <input
+              id="cf-width"
               type="number"
               className="cubic-input"
               value={cfWidth}
@@ -284,16 +388,26 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
               min="0"
               onChange={(e) => setCfWidth(e.target.value)}
             />
-            <span className="cubic-warning-text" style={{ display: showCfWarnW ? "block" : "none" }}>
+
+            <span
+              className="cubic-warning-text"
+              style={{ display: showCfWarnW ? "block" : "none" }}
+            >
               Please complete your Width (positive value required)
             </span>
           </div>
+
         </div>
 
         <div className="cubic-row-inputs">
+
           <div className="cubic-form-group">
-            <label className="cubic-label">Height</label>
+            <label className="cubic-label" htmlFor="cf-height">
+              Height
+            </label>
+
             <input
+              id="cf-height"
               type="number"
               className="cubic-input"
               value={cfHeight}
@@ -302,14 +416,26 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
               min="0"
               onChange={(e) => setCfHeight(e.target.value)}
             />
-            <span className="cubic-warning-text" style={{ display: showCfWarnH ? "block" : "none" }}>
+
+            <span
+              className="cubic-warning-text"
+              style={{ display: showCfWarnH ? "block" : "none" }}
+            >
               Please complete your Height (positive value required)
             </span>
           </div>
 
           <div className="cubic-form-group">
-            <label className="cubic-label">Measurement Unit</label>
-            <select className="cubic-select" value={cfUnit} onChange={(e) => setCfUnit(e.target.value)}>
+            <label className="cubic-label" htmlFor="cf-unit">
+              Measurement Unit
+            </label>
+
+            <select
+              id="cf-unit"
+              className="cubic-select"
+              value={cfUnit}
+              onChange={(e) => setCfUnit(e.target.value)}
+            >
               <option value="feet">Feet</option>
               <option value="inches">Inches</option>
               <option value="centimeters">Centimeters</option>
@@ -317,42 +443,68 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
               <option value="yards">Yards</option>
             </select>
           </div>
+
         </div>
 
         <div className={`cubic-result-box ${cfRes ? "active" : ""}`}>
-          <h3>Calculation Results</h3>
+
+          <h2>Calculation Results</h2>
 
           <div className="cubic-primary-result">
             <div className="cubic-primary-label">Total Cubic Feet</div>
-            <div className="cubic-primary-value">{cfRes ? cfRes.feet.toFixed(4) + " ft³" : "0.0000 ft³"}</div>
+            <div className="cubic-primary-value">
+              {cfRes ? cfRes.feet.toFixed(4) + " ft³" : "0.0000 ft³"}
+            </div>
           </div>
 
-          <div className="cubic-sub-results-title">Additional Conversions</div>
+          <div className="cubic-sub-results-title">
+            Additional Conversions
+          </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Inches</span>
-            <span className="cubic-result-value">{cfRes ? cfRes.inches.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " in³" : "0.00 in³"}</span>
+            <span className="cubic-result-value">
+              {cfRes
+                ? cfRes.inches.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }) + " in³"
+                : "0.00 in³"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Meters</span>
-            <span className="cubic-result-value">{cfRes ? cfRes.meters.toFixed(4) + " m³" : "0.0000 m³"}</span>
+            <span className="cubic-result-value">
+              {cfRes ? cfRes.meters.toFixed(4) + " m³" : "0.0000 m³"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Yards</span>
-            <span className="cubic-result-value">{cfRes ? cfRes.yards.toFixed(4) + " yd³" : "0.0000 yd³"}</span>
+            <span className="cubic-result-value">
+              {cfRes ? cfRes.yards.toFixed(4) + " yd³" : "0.0000 yd³"}
+            </span>
           </div>
 
-          <div className="cubic-formula-box">Formula: Cubic Feet = Length x Width x Height (Converted to Feet)</div>
+          <div className="cubic-formula-box">
+            Formula: Cubic Feet = Length x Width x Height (Converted to Feet)
+          </div>
+
         </div>
       </div>
 
       {/* 2. Cubic Feet to Yard */}
       <div className={`cubic-calculator-section ${activeTab === 1 ? "active" : ""}`}>
+
         <div className="cubic-form-group">
-          <label className="cubic-label">Cubic Feet</label>
+
+          <label className="cubic-label" htmlFor="cfty-input">
+            Cubic Feet
+          </label>
+
           <input
+            id="cfty-input"
             type="number"
             className="cubic-input"
             value={cftyInput}
@@ -361,57 +513,100 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
             min="0"
             onChange={(e) => setCftyInput(e.target.value)}
           />
-          <span className="cubic-warning-text" style={{ display: showCftyWarn ? "block" : "none" }}>
+
+          <span
+            className="cubic-warning-text"
+            style={{ display: showCftyWarn ? "block" : "none" }}
+          >
             Please complete your Cubic Feet (positive value required)
           </span>
+
         </div>
 
         <div className={`cubic-result-box ${cftyRes ? "active" : ""}`}>
-          <h3>Conversion Results</h3>
+
+          <h2>Conversion Results</h2>
 
           <div className="cubic-primary-result">
             <div className="cubic-primary-label">Cubic Yards</div>
-            <div className="cubic-primary-value">{cftyRes ? cftyRes.yards.toFixed(4) + " yd³" : "0.0000 yd³"}</div>
+            <div className="cubic-primary-value">
+              {cftyRes ? cftyRes.yards.toFixed(4) + " yd³" : "0.0000 yd³"}
+            </div>
           </div>
 
-          <div className="cubic-sub-results-title">Additional Conversions</div>
+          <div className="cubic-sub-results-title">
+            Additional Conversions
+          </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Feet</span>
-            <span className="cubic-result-value">{cftyRes ? cftyRes.feet.toFixed(4) + " ft³" : "0.0000 ft³"}</span>
+            <span className="cubic-result-value">
+              {cftyRes ? cftyRes.feet.toFixed(4) + " ft³" : "0.0000 ft³"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Inches</span>
-            <span className="cubic-result-value">{cftyRes ? cftyRes.inches.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " in³" : "0.00 in³"}</span>
+            <span className="cubic-result-value">
+              {cftyRes
+                ? cftyRes.inches.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }) + " in³"
+                : "0.00 in³"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Meters</span>
-            <span className="cubic-result-value">{cftyRes ? cftyRes.meters.toFixed(4) + " m³" : "0.0000 m³"}</span>
+            <span className="cubic-result-value">
+              {cftyRes ? cftyRes.meters.toFixed(4) + " m³" : "0.0000 m³"}
+            </span>
           </div>
 
-          <div className="cubic-formula-box">Formula: 1 Cubic Yard = 27 Cubic Feet | Cubic Yards = Cubic Feet / 27</div>
+          <div className="cubic-formula-box">
+            Formula: 1 Cubic Yard = 27 Cubic Feet | Cubic Yards = Cubic Feet / 27
+          </div>
+
         </div>
       </div>
 
       {/* 3. Cubic Calculator */}
       <div className={`cubic-calculator-section ${activeTab === 2 ? "active" : ""}`}>
+
         <div className="cubic-form-group">
-          <label className="cubic-label">Shape Selection</label>
-          <select className="cubic-select" value={ccShape} onChange={(e) => setCcShape(e.target.value)}>
+
+          <label className="cubic-label" htmlFor="cc-shape">
+            Shape Selection
+          </label>
+
+          <select
+            id="cc-shape"
+            className="cubic-select"
+            value={ccShape}
+            onChange={(e) => setCcShape(e.target.value)}
+          >
             <option value="cube">Cube</option>
             <option value="rectangular">Rectangular Box</option>
             <option value="cylinder">Cylinder</option>
           </select>
+
         </div>
 
         <div className="cubic-row-inputs">
+
           <div className="cubic-form-group">
-            <label className="cubic-label">
-              {ccShape === "cylinder" ? "Radius" : ccShape === "cube" ? "Side Length" : "Length"}
+
+            <label className="cubic-label" htmlFor="cc-length">
+              {ccShape === "cylinder"
+                ? "Radius"
+                : ccShape === "cube"
+                  ? "Side Length"
+                  : "Length"}
             </label>
+
             <input
+              id="cc-length"
               type="number"
               className="cubic-input"
               value={ccLength}
@@ -420,15 +615,25 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
               min="0"
               onChange={(e) => setCcLength(e.target.value)}
             />
-            <span className="cubic-warning-text" style={{ display: showCcWarnL ? "block" : "none" }}>
+
+            <span
+              className="cubic-warning-text"
+              style={{ display: showCcWarnL ? "block" : "none" }}
+            >
               Please complete your value (positive value required)
             </span>
+
           </div>
 
           {ccShape === "rectangular" && (
             <div className="cubic-form-group">
-              <label className="cubic-label">Width</label>
+
+              <label className="cubic-label" htmlFor="cc-width">
+                Width
+              </label>
+
               <input
+                id="cc-width"
                 type="number"
                 className="cubic-input"
                 value={ccWidth}
@@ -437,18 +642,30 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
                 min="0"
                 onChange={(e) => setCcWidth(e.target.value)}
               />
-              <span className="cubic-warning-text" style={{ display: showCcWarnW ? "block" : "none" }}>
+
+              <span
+                className="cubic-warning-text"
+                style={{ display: showCcWarnW ? "block" : "none" }}
+              >
                 Please complete your Width (positive value required)
               </span>
+
             </div>
           )}
+
         </div>
 
         {ccShape !== "cube" && (
           <div className="cubic-row-inputs">
+
             <div className="cubic-form-group">
-              <label className="cubic-label">Height / Depth</label>
+
+              <label className="cubic-label" htmlFor="cc-height">
+                Height / Depth
+              </label>
+
               <input
+                id="cc-height"
                 type="number"
                 className="cubic-input"
                 value={ccHeight}
@@ -457,75 +674,131 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
                 min="0"
                 onChange={(e) => setCcHeight(e.target.value)}
               />
-              <span className="cubic-warning-text" style={{ display: showCcWarnH ? "block" : "none" }}>
+
+              <span
+                className="cubic-warning-text"
+                style={{ display: showCcWarnH ? "block" : "none" }}
+              >
                 Please complete your Height (positive value required)
               </span>
+
             </div>
 
             <div className="cubic-form-group">
-              <label className="cubic-label">Measurement Unit</label>
-              <select className="cubic-select" value={ccUnit} onChange={(e) => setCcUnit(e.target.value)}>
+
+              <label className="cubic-label" htmlFor="cc-unit">
+                Measurement Unit
+              </label>
+
+              <select
+                id="cc-unit"
+                className="cubic-select"
+                value={ccUnit}
+                onChange={(e) => setCcUnit(e.target.value)}
+              >
                 <option value="inches">Inches</option>
                 <option value="feet">Feet</option>
                 <option value="centimeters">Centimeters</option>
                 <option value="meters">Meters</option>
               </select>
+
             </div>
+
           </div>
         )}
 
         {ccShape === "cube" && (
           <div className="cubic-form-group">
-            <label className="cubic-label">Measurement Unit</label>
-            <select className="cubic-select" value={ccUnit} onChange={(e) => setCcUnit(e.target.value)}>
+
+            <label className="cubic-label" htmlFor="cc-unit-cube">
+              Measurement Unit
+            </label>
+
+            <select
+              id="cc-unit-cube"
+              className="cubic-select"
+              value={ccUnit}
+              onChange={(e) => setCcUnit(e.target.value)}
+            >
               <option value="inches">Inches</option>
               <option value="feet">Feet</option>
               <option value="centimeters">Centimeters</option>
               <option value="meters">Meters</option>
             </select>
+
           </div>
         )}
 
         <div className={`cubic-result-box ${ccRes ? "active" : ""}`}>
-          <h3>Volume Results</h3>
+
+          <h2>Volume Results</h2>
 
           <div className="cubic-primary-result">
             <div className="cubic-primary-label">Total Volume</div>
-            <div className="cubic-primary-value">{ccRes ? ccRes.volume.toFixed(4) + " " + ccUnit + "³" : "0.0000"}</div>
+            <div className="cubic-primary-value">
+              {ccRes
+                ? ccRes.volume.toFixed(4) + " " + ccUnit + "³"
+                : "0.0000"}
+            </div>
           </div>
 
-          <div className="cubic-sub-results-title">Additional Conversions</div>
+          <div className="cubic-sub-results-title">
+            Additional Conversions
+          </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Feet</span>
-            <span className="cubic-result-value">{ccRes ? ccRes.feet.toFixed(4) + " ft³" : "0.0000 ft³"}</span>
+            <span className="cubic-result-value">
+              {ccRes ? ccRes.feet.toFixed(4) + " ft³" : "0.0000 ft³"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Yards</span>
-            <span className="cubic-result-value">{ccRes ? ccRes.yards.toFixed(4) + " yd³" : "0.0000 yd³"}</span>
+            <span className="cubic-result-value">
+              {ccRes ? ccRes.yards.toFixed(4) + " yd³" : "0.0000 yd³"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Inches</span>
-            <span className="cubic-result-value">{ccRes ? ccRes.inches.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " in³" : "0.00 in³"}</span>
+            <span className="cubic-result-value">
+              {ccRes
+                ? ccRes.inches.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }) + " in³"
+                : "0.00 in³"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
             <span className="cubic-result-label">Cubic Meters</span>
-            <span className="cubic-result-value">{ccRes ? ccRes.meters.toFixed(4) + " m³" : "0.0000 m³"}</span>
+            <span className="cubic-result-value">
+              {ccRes ? ccRes.meters.toFixed(4) + " m³" : "0.0000 m³"}
+            </span>
           </div>
 
-          <div className="cubic-formula-box">Formula: Shape Volume Calculation based on dimensions</div>
+          <div className="cubic-formula-box">
+            Formula: Shape Volume Calculation based on dimensions
+          </div>
+
         </div>
       </div>
 
       {/* 4. CFM Calculator */}
       <div className={`cubic-calculator-section ${activeTab === 3 ? "active" : ""}`}>
+
         <div className="cubic-row-inputs">
+
           <div className="cubic-form-group">
-            <label className="cubic-label">Volume (Cubic Feet)</label>
+
+            <label className="cubic-label" htmlFor="cfm-volume">
+              Volume (Cubic Feet)
+            </label>
+
             <input
+              id="cfm-volume"
               type="number"
               className="cubic-input"
               value={cfmVol}
@@ -534,14 +807,24 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
               min="0"
               onChange={(e) => setCfmVol(e.target.value)}
             />
-            <span className="cubic-warning-text" style={{ display: showCfmWarnVol ? "block" : "none" }}>
+
+            <span
+              className="cubic-warning-text"
+              style={{ display: showCfmWarnVol ? "block" : "none" }}
+            >
               Please complete your Volume (positive value required)
             </span>
+
           </div>
 
           <div className="cubic-form-group">
-            <label className="cubic-label">Time</label>
+
+            <label className="cubic-label" htmlFor="cfm-time">
+              Time
+            </label>
+
             <input
+              id="cfm-time"
               type="number"
               className="cubic-input"
               value={cfmTime}
@@ -550,73 +833,162 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
               min="0"
               onChange={(e) => setCfmTime(e.target.value)}
             />
-            <span className="cubic-warning-text" style={{ display: showCfmWarnTime ? "block" : "none" }}>
+
+            <span
+              className="cubic-warning-text"
+              style={{ display: showCfmWarnTime ? "block" : "none" }}
+            >
               Please complete your Time (must be greater than 0)
             </span>
+
           </div>
+
         </div>
 
         <div className="cubic-form-group">
-          <label className="cubic-label">Time Unit</label>
-          <select className="cubic-select" value={cfmTimeUnit} onChange={(e) => setCfmTimeUnit(e.target.value)}>
+
+          <label className="cubic-label" htmlFor="cfm-time-unit">
+            Time Unit
+          </label>
+
+          <select
+            id="cfm-time-unit"
+            className="cubic-select"
+            value={cfmTimeUnit}
+            onChange={(e) => setCfmTimeUnit(e.target.value)}
+          >
             <option value="minutes">Minutes</option>
             <option value="seconds">Seconds</option>
           </select>
+
         </div>
 
         <div className={`cubic-result-box ${cfmRes ? "active" : ""}`}>
-          <h3>Airflow Results</h3>
+
+          <h2>Airflow Results</h2>
 
           <div className="cubic-primary-result">
-            <div className="cubic-primary-label">Cubic Feet Per Minute (CFM)</div>
-            <div className="cubic-primary-value">{cfmRes ? cfmRes.min.toFixed(4) + " CFM" : "0.0000 CFM"}</div>
+            <div className="cubic-primary-label">
+              Cubic Feet Per Minute (CFM)
+            </div>
+
+            <div className="cubic-primary-value">
+              {cfmRes ? cfmRes.min.toFixed(4) + " CFM" : "0.0000 CFM"}
+            </div>
           </div>
 
-          <div className="cubic-sub-results-title">Additional Conversions</div>
+          <div className="cubic-sub-results-title">
+            Additional Conversions
+          </div>
 
           <div className="cubic-result-item">
-            <span className="cubic-result-label">Cubic Feet Per Hour (CFH)</span>
-            <span className="cubic-result-value">{cfmRes ? cfmRes.hour.toFixed(2) + " CFH" : "0.00 CFH"}</span>
+            <span className="cubic-result-label">
+              Cubic Feet Per Hour (CFH)
+            </span>
+
+            <span className="cubic-result-value">
+              {cfmRes ? cfmRes.hour.toFixed(2) + " CFH" : "0.00 CFH"}
+            </span>
           </div>
 
           <div className="cubic-result-item">
-            <span className="cubic-result-label">Cubic Feet Per Second (CFS)</span>
-            <span className="cubic-result-value">{cfmRes ? cfmRes.sec.toFixed(4) + " CFS" : "0.0000 CFS"}</span>
+            <span className="cubic-result-label">
+              Cubic Feet Per Second (CFS)
+            </span>
+
+            <span className="cubic-result-value">
+              {cfmRes ? cfmRes.sec.toFixed(4) + " CFS" : "0.0000 CFS"}
+            </span>
           </div>
 
-          <div className="cubic-formula-box">Formula: CFM = Cubic Feet / Time (Minutes)</div>
+          <div className="cubic-formula-box">
+            Formula: CFM = Cubic Feet / Time (Minutes)
+          </div>
+
         </div>
       </div>
 
       {/* SEO Intro, Article & FAQ Section */}
       <div className="cubic-seo-container">
-        <p className="cubic-seo-intro">{currentConfig.introText}</p>
 
-        <h2 className="cubic-seo-article-title">{currentConfig.article.title}</h2>
+        <p className="cubic-seo-intro">
+          {currentConfig.introText}
+        </p>
+
+        <h2 className="cubic-seo-article-title">
+          {currentConfig.article.title}
+        </h2>
 
         {currentConfig.article.sections.map((sec, idx) => (
           <div key={idx} className="cubic-seo-section">
-            {sec.level === "h2" && <h2 className="cubic-seo-heading">{sec.heading}</h2>}
-            {sec.level === "h3" && <h3 className="cubic-seo-heading">{sec.heading}</h3>}
-            {sec.level === "h4" && <h4 className="cubic-seo-heading">{sec.heading}</h4>}
 
-            <p className="cubic-seo-text">{sec.content}</p>
+            {sec.level === "h2" && (
+              <h2 className="cubic-seo-heading">
+                {sec.heading}
+              </h2>
+            )}
+
+            <p className="cubic-seo-text">
+              {sec.content}
+            </p>
+
           </div>
         ))}
 
-        <h3 className="cubic-seo-faq-title" style={{ marginTop: "30px" }}>
+        {/* Internal and External Links */}
+<div className="maintenance-links">
+  <p>
+    You may also find these useful tools and guides:
+  </p>
+
+  <p
+    dangerouslySetInnerHTML={{
+      __html: DOMPurify.sanitize(`
+        <a href="/how-to-calculate-percentage-of-difference">How to Calculate Percentage of Difference</a>
+        <a href="/date-and-time-calculator-between-two-dates">Date and Time Calculator Between Two Dates</a>
+        <a href="/date-and-time-duration-calculator">Date and Time Duration Calculator</a>
+      `)
+    }}
+  />
+
+  <p>
+    For additional information about healthy weight management, visit the
+    <a href="https://impact.chp.gov.hk/calculator_11_1.php" target="_blank" rel="noopener noreferrer">
+      NIDDK Body Weight Planner
+    </a>.
+  </p>
+</div>
+
+
+
+        <h2
+          className="cubic-seo-faq-title"
+          style={{ marginTop: "30px" }}
+        >
           Frequently Asked Questions
-        </h3>
+        </h2>
 
         <div className="cubic-faq-list">
+
           {currentConfig.faqs.map((faq, index) => (
             <div key={index} className="cubic-faq-item">
+
               <button
+                type="button"
                 className="cubic-faq-question"
-                onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                aria-expanded={openFaqIndex === index}
+                onClick={() =>
+                  setOpenFaqIndex(
+                    openFaqIndex === index ? null : index
+                  )
+                }
               >
                 <span>{faq.question}</span>
-                <span>{openFaqIndex === index ? "▲" : "▼"}</span>
+
+                <span aria-hidden="true">
+                  {openFaqIndex === index ? "▲" : "▼"}
+                </span>
+
               </button>
 
               {openFaqIndex === index && (
@@ -624,10 +996,13 @@ export default function CalculateCubicFeetTool({ slug = "calculate-cubic-feet" }
                   {faq.answer}
                 </div>
               )}
+
             </div>
           ))}
+
         </div>
       </div>
+
     </div>
   );
 }
