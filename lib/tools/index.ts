@@ -17,6 +17,7 @@ import { wordToPdf } from "./image-pdf/word-to-pdf";
 import { whatIsMyIpAddress } from "./what-is-my-ip-no";
 import { caseConverterTools } from "./case-converter";
 import { formatPngToJpg } from "./image-pdf/format-png-to-jpg";
+import { photoImageResizer } from "./image-pdf/photo-image-resizer";
 
 export const toolsRegistry = {
   "online-age-calculator-age-calculator-online": ageCalculator,
@@ -38,6 +39,7 @@ export const toolsRegistry = {
   ...caseConverterTools,
   "what-is-my-ip-no": whatIsMyIpAddress,
   "format-png-to-jpg": formatPngToJpg,
+  "photo-image-resizer": photoImageResizer,
 };
 
 // সাইটম্যাপ বা অন্যান্য জায়গায় সহজে ব্যবহারের জন্য একটি অ্যারে এক্সপোর্ট করুন
