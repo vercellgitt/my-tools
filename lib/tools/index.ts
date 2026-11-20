@@ -1,16 +1,11 @@
 import { ageCalculator } from "./all-calculator/age-calculator";
 import { imageToPdf } from "./image-pdf/image-to-pdf";
 import { pdfToImage } from "./image-pdf/pdf-to-image";
-import { allBmiCalculators } from "./all-calculator/body-mass-index-calculator";
 import { internationalSpeedTest } from "./international-speed-test";
 import { wordCountOnlineWordCounter } from "./word-count-online-word-counter";
 import { dailyWaterIntakeCalculator } from "./daily-water-intake-calculator";
-import { percentFormulaTools } from "./all-calculator/percent-of-difference-formula";
-import { dateAndTimeDurationCalculatorTools } from "./all-calculator/date-and-time-duration-calculator";
 import { maintenanceCalorieCalculator } from "./all-calculator/maintenance-calorie-calculator";
-import { cubicFeetTools } from "./all-calculator/calculate-cubic-feet";
 import { prayerTimeForInMuslim } from "./prayer-time-for-in-muslim";
-import { densityCalculatorTools } from "./all-calculator/formula-to-find-density";
 import { saleDiscountTaxCalculator } from "./all-calculator/sale-discount-tax-calculator";
 import { wordToPdf } from "./image-pdf/word-to-pdf";
 import { whatIsMyIpAddress } from "./what-is-my-ip-no";
@@ -22,16 +17,11 @@ export const toolsRegistry = {
   "online-age-calculator-age-calculator-online": ageCalculator,
   "image-to-pdf": imageToPdf,
   "pdf-to-image": pdfToImage,
-  ...allBmiCalculators,
   "international-speed-test": internationalSpeedTest,
   "word-count-online-word-counter": wordCountOnlineWordCounter,
   "daily-water-intake-calculator": dailyWaterIntakeCalculator,
-  ...percentFormulaTools,
-  ...dateAndTimeDurationCalculatorTools,
   "maintenance-calorie-calculator": maintenanceCalorieCalculator,
-  ...cubicFeetTools,
   "prayer-time-for-muslim-namaz-time-in": prayerTimeForInMuslim,
-  ...densityCalculatorTools,
   "sale-discount-value-calculator-with-tax-percentage": saleDiscountTaxCalculator,
   "word-to-pdf-transfer-from-conversion-word-to-pdf": wordToPdf,
   "what-is-my-ip-no": whatIsMyIpAddress,
