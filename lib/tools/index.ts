@@ -9,7 +9,6 @@ import { percentFormulaTools } from "./all-calculator/percent-of-difference-form
 import { dateAndTimeDurationCalculatorTools } from "./all-calculator/date-and-time-duration-calculator";
 import { maintenanceCalorieCalculator } from "./all-calculator/maintenance-calorie-calculator";
 import { cubicFeetTools } from "./all-calculator/calculate-cubic-feet";
-import { dateCounterTools } from "./all-calculator/date-counter";
 import { prayerTimeForInMuslim } from "./prayer-time-for-in-muslim";
 import { densityCalculatorTools } from "./all-calculator/formula-to-find-density";
 import { saleDiscountTaxCalculator } from "./all-calculator/sale-discount-tax-calculator";
@@ -31,7 +30,6 @@ export const toolsRegistry = {
   ...dateAndTimeDurationCalculatorTools,
   "maintenance-calorie-calculator": maintenanceCalorieCalculator,
   ...cubicFeetTools,
-  ...dateCounterTools,
   "prayer-time-for-muslim-namaz-time-in": prayerTimeForInMuslim,
   ...densityCalculatorTools,
   "sale-discount-value-calculator-with-tax-percentage": saleDiscountTaxCalculator,
