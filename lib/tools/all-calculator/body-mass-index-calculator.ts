@@ -37,15 +37,6 @@ export const allBmiCalculators = {
     "Global",
     "standard"
   ),
-
-  "body-mass-index-calculator-men": createTool(
-    "body-mass-index-calculator-men",
-    "Body Mass Index Calculator Men - Male Health Tracker",
-    "Explore the body mass index calculator men to assess body composition, muscle mass considerations, and health categories accurately today Calculator Men.",
-    ["body mass index calculator men"],
-    "Global",
-    "standard"
-  ),
 };
 
 export type BmiCalculatorSlug = keyof typeof allBmiCalculators;
