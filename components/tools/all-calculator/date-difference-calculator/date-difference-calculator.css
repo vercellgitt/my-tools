@@ -1,0 +1,260 @@
+.datediff1-root {
+  width: 100%;
+  max-width: 100%;
+  color: #143624;
+}
+
+.datediff1-sheet {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  background-color: #fbf7ee;
+  border: 1px solid #dfd3b8;
+  border-radius: 16px;
+}
+
+.datediff1-header {
+  background-color: #14532d;
+  color: #fefce8;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.datediff1-kicker {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #bbf7d0;
+  margin-bottom: 6px;
+}
+
+.datediff1-title {
+  margin: 0 0 6px;
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.datediff1-subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #dcfce7;
+}
+
+.datediff1-form-card {
+  background-color: #fffdf7;
+  border: 1px solid #e5dcc5;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.datediff1-date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.datediff1-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #14532d;
+  margin-bottom: 6px;
+}
+
+.datediff1-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #14532d;
+  background-color: #ffffff;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+}
+
+.datediff1-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.datediff1-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a29;
+  cursor: pointer;
+}
+
+.datediff1-error {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #991b1b;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+}
+
+.datediff1-btn-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.datediff1-btn-primary {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fefce8;
+  background-color: #14532d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.datediff1-btn-primary:hover:not(:disabled) {
+  background-color: #166534;
+}
+
+.datediff1-btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.datediff1-btn-secondary {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #14532d;
+  background-color: #f3ede0;
+  border: 1px solid #d6c7a8;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.datediff1-summary-panel {
+  background-color: #fffdf7;
+  border: 1px solid #e5dcc5;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.datediff1-range-banner {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #14532d;
+  margin-bottom: 14px;
+}
+
+.datediff1-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.datediff1-stat {
+  background-color: #fbf7ee;
+  border: 1px solid #e5dcc5;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.datediff1-stat-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3f6212;
+}
+
+.datediff1-stat-num {
+  font-size: 24px;
+  color: #14532d;
+}
+
+.datediff1-stat-small {
+  font-size: 18px;
+}
+
+.datediff1-note,
+.datediff1-faq {
+  background-color: #fffdf7;
+  border: 1px solid #e5dcc5;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.datediff1-faq {
+  margin-bottom: 0;
+}
+
+.datediff1-note-h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #14532d;
+}
+
+.datediff1-note-p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #374151;
+}
+
+.datediff1-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.datediff1-faq-item {
+  border: 1px solid #e5dcc5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.datediff1-faq-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #14532d;
+  background-color: #f5f0e1;
+  border: none;
+  cursor: pointer;
+}
+
+.datediff1-faq-ans {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .datediff1-date-row,
+  .datediff1-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

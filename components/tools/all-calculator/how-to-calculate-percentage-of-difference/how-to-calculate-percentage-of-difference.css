@@ -1,0 +1,269 @@
+.percentdiff1-root {
+  width: 100%;
+  max-width: 100%;
+  color: #0f172a;
+}
+
+.percentdiff1-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  background-color: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+}
+
+.percentdiff1-header {
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  border-bottom: 4px solid #ea580c;
+}
+
+.percentdiff1-kicker {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fb923c;
+  margin-bottom: 6px;
+}
+
+.percentdiff1-title {
+  margin: 0 0 6px;
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.percentdiff1-lead {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #cbd5e1;
+}
+
+.percentdiff1-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.percentdiff1-card {
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.percentdiff1-navy-card {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.percentdiff1-light-card {
+  background-color: #ffffff;
+  border: 1px solid #fdba74;
+}
+
+.percentdiff1-field {
+  margin-bottom: 14px;
+}
+
+.percentdiff1-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fdba74;
+  margin-bottom: 6px;
+}
+
+.percentdiff1-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 2px solid #ea580c;
+  border-radius: 8px;
+}
+
+.percentdiff1-error {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #fee2e2;
+  background-color: #7f1d1d;
+  border: 1px solid #f87171;
+  border-radius: 8px;
+}
+
+.percentdiff1-btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.percentdiff1-btn-orange {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #ea580c;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.percentdiff1-btn-orange:hover:not(:disabled) {
+  background-color: #c2410c;
+}
+
+.percentdiff1-btn-orange:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.percentdiff1-btn-ghost {
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.percentdiff1-result-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #c2410c;
+}
+
+.percentdiff1-result-big {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 6px 0 8px;
+}
+
+.percentdiff1-diff-note {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: #334155;
+}
+
+.percentdiff1-result-empty {
+  padding: 16px 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.percentdiff1-steps {
+  background-color: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.percentdiff1-steps-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9a3412;
+  margin-bottom: 6px;
+}
+
+.percentdiff1-formula {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.percentdiff1-step-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #1e293b;
+}
+
+.percentdiff1-lesson,
+.percentdiff1-faq {
+  background-color: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.percentdiff1-faq {
+  margin-bottom: 0;
+}
+
+.percentdiff1-lesson-heading,
+.percentdiff1-faq-heading {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.percentdiff1-lesson-text {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.percentdiff1-faq-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.percentdiff1-faq-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.percentdiff1-faq-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: none;
+  cursor: pointer;
+}
+
+.percentdiff1-faq-content {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .percentdiff1-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .percentdiff1-title {
+    font-size: 23px;
+  }
+}

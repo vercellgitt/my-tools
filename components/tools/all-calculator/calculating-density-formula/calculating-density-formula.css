@@ -1,0 +1,256 @@
+.densityformulaContainer {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  background-color: #ffffff;
+  color: #2e1065;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.densityformulaBanner {
+  background: linear-gradient(135deg, #581c87 0%, #7e22ce 55%, #9333ea 100%);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 24px rgba(107, 33, 168, 0.16);
+}
+
+.densityformulaHeading {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.densityformulaLead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #f3e8ff;
+}
+
+.densityformulaCentralPanel {
+  background-color: #faf5ff;
+  border: 2px solid #d8b4fe;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 26px;
+}
+
+.densityformulaInputsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.densityformulaInputCard {
+  background-color: #ffffff;
+  border: 1.5px solid #c084fc;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.06);
+}
+
+.densityformulaCardTitle {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #6b21a8;
+}
+
+.densityformulaLabel {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4c1d95;
+  margin-bottom: 6px;
+}
+
+.densityformulaField {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #c4b5fd;
+  border-radius: 9px;
+  font-size: 1rem;
+  color: #2e1065;
+  background-color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.densityformulaField:focus {
+  outline: none;
+  border-color: #7e22ce;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.22);
+}
+
+.densityformulaHeroResult {
+  background: linear-gradient(120deg, #4c1d95 0%, #6b21a8 65%, #7e22ce 100%);
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.densityformulaResultCaption {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #e9d5ff;
+  margin-bottom: 6px;
+}
+
+.densityformulaBigNumber {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.densityformulaSubFormula {
+  font-size: 0.95rem;
+  color: #f3e8ff;
+}
+
+.densityformulaBtnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.densityformulaBtnPrimary {
+  background-color: #7e22ce;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.densityformulaBtnPrimary:hover {
+  background-color: #6b21a8;
+}
+
+.densityformulaBtnReset {
+  background-color: #f3e8ff;
+  color: #581c87;
+  border: 1.5px solid #c084fc;
+  border-radius: 9px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.densityformulaBtnReset:hover {
+  background-color: #e9d5ff;
+}
+
+.densityformulaErrorBox {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.densityformulaSubSection {
+  background-color: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.densityformulaSubHeading {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #581c87;
+}
+
+.densityformulaTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.densityformulaTable th,
+.densityformulaTable td {
+  padding: 11px 14px;
+  text-align: left;
+  border-bottom: 1px solid #ede9fe;
+  font-size: 0.92rem;
+}
+
+.densityformulaTable th {
+  background-color: #f3e8ff;
+  color: #4c1d95;
+  font-weight: 700;
+}
+
+.densityformulaSteps {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.7;
+  color: #3b0764;
+}
+
+.densityformulaFaqWrap {
+  margin-top: 24px;
+}
+
+.densityformulaFaqTitle {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #581c87;
+  margin: 0 0 12px;
+}
+
+.densityformulaFaqCard {
+  border: 1px solid #d8b4fe;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.densityformulaFaqBtn {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #faf5ff;
+  color: #4c1d95;
+  border: none;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.densityformulaFaqBtn[aria-expanded="true"] {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.densityformulaFaqBody {
+  padding: 14px 16px;
+  line-height: 1.65;
+  color: #3b0764;
+  border-top: 1px solid #ede9fe;
+}
+
+@media (max-width: 720px) {
+  .densityformulaInputsRow {
+    grid-template-columns: 1fr;
+  }
+}

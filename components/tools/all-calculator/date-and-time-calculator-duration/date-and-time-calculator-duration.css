@@ -1,0 +1,286 @@
+.dateduration1-root {
+  width: 100%;
+  max-width: 100%;
+  color: #0c4a6e;
+}
+
+.dateduration1-frame {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 16px;
+}
+
+.dateduration1-top {
+  background-color: #082f49;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.dateduration1-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #22d3ee;
+  margin-bottom: 6px;
+}
+
+.dateduration1-h1 {
+  margin: 0 0 6px;
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.dateduration1-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #bae6fd;
+}
+
+.dateduration1-two-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.dateduration1-panel {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #7dd3fc;
+}
+
+.dateduration1-panel-start {
+  border-top: 4px solid #06b6d4;
+}
+
+.dateduration1-panel-end {
+  border-top: 4px solid #1e3a8a;
+}
+
+.dateduration1-panel-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #0c4a6e;
+}
+
+.dateduration1-field {
+  margin-bottom: 12px;
+}
+
+.dateduration1-field:last-child {
+  margin-bottom: 0;
+}
+
+.dateduration1-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #075985;
+  margin-bottom: 5px;
+}
+
+.dateduration1-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #0c4a6e;
+  background-color: #f8fafc;
+  border: 1px solid #38bdf8;
+  border-radius: 8px;
+}
+
+.dateduration1-error {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #991b1b;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+}
+
+.dateduration1-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.dateduration1-btn-cyan {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #082f49;
+  background-color: #22d3ee;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dateduration1-btn-cyan:hover:not(:disabled) {
+  background-color: #06b6d4;
+}
+
+.dateduration1-btn-cyan:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dateduration1-btn-dark {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1e3a8a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dateduration1-results {
+  background-color: #ffffff;
+  border: 1px solid #7dd3fc;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.dateduration1-summary-card {
+  background-color: #082f49;
+  color: #ffffff;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.dateduration1-summary-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #67e8f9;
+  margin-bottom: 4px;
+}
+
+.dateduration1-summary-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.dateduration1-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.dateduration1-unit-box {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dateduration1-unit-box span {
+  font-size: 12px;
+  color: #0369a1;
+}
+
+.dateduration1-unit-box strong {
+  font-size: 20px;
+  color: #082f49;
+}
+
+.dateduration1-totals-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e0f2fe;
+  font-size: 13px;
+  color: #0c4a6e;
+}
+
+.dateduration1-guide,
+.dateduration1-faq {
+  background-color: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.dateduration1-faq {
+  margin-bottom: 0;
+}
+
+.dateduration1-guide-h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #082f49;
+}
+
+.dateduration1-guide-p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.dateduration1-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dateduration1-faq-item {
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dateduration1-faq-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #082f49;
+  background-color: #f0f9ff;
+  border: none;
+  cursor: pointer;
+}
+
+.dateduration1-faq-body {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .dateduration1-two-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .dateduration1-breakdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

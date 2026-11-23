@@ -1,0 +1,344 @@
+.midpointdate1-root {
+  width: 100%;
+  max-width: 100%;
+  color: #1f2937;
+}
+
+.midpointdate1-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  background-color: #1c1917;
+  color: #fafaf9;
+  border-radius: 16px;
+  border: 1px solid #44403c;
+}
+
+.midpointdate1-header {
+  margin-bottom: 18px;
+}
+
+.midpointdate1-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1c1917;
+  background-color: #facc15;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.midpointdate1-title {
+  margin: 0 0 6px;
+  font-size: 27px;
+  line-height: 1.2;
+  color: #fef08a;
+}
+
+.midpointdate1-sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #d6d3d1;
+}
+
+.midpointdate1-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.midpointdate1-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fde047;
+  margin-bottom: 6px;
+}
+
+.midpointdate1-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #1c1917;
+  background-color: #ffffff;
+  border: 2px solid #eab308;
+  border-radius: 8px;
+}
+
+.midpointdate1-error {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #fecaca;
+  background-color: #450a0a;
+  border: 1px solid #f87171;
+  border-radius: 8px;
+}
+
+.midpointdate1-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.midpointdate1-btn-yellow {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1c1917;
+  background-color: #facc15;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.midpointdate1-btn-yellow:hover:not(:disabled) {
+  background-color: #eab308;
+}
+
+.midpointdate1-btn-yellow:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.midpointdate1-btn-charcoal {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fafaf9;
+  background-color: #292524;
+  border: 1px solid #78716c;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.midpointdate1-result-card {
+  background-color: #292524;
+  border: 1px solid #57534e;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.midpointdate1-info-banner {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #fef08a;
+  background-color: #422006;
+  border: 1px solid #ca8a04;
+  border-radius: 8px;
+}
+
+.midpointdate1-hero-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.midpointdate1-hero-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #facc15;
+  font-weight: 700;
+}
+
+.midpointdate1-hero-date {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 4px 0;
+}
+
+.midpointdate1-hero-weekday {
+  font-size: 14px;
+  color: #e7e5e4;
+}
+
+.midpointdate1-range-box {
+  background-color: #1c1917;
+  border: 1px solid #44403c;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #e7e5e4;
+}
+
+.midpointdate1-odd-note {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.55;
+  background-color: #1c1917;
+  border-left: 3px solid #facc15;
+  border-radius: 6px;
+  color: #e7e5e4;
+}
+
+.midpointdate1-timeline {
+  margin-bottom: 16px;
+  padding: 14px;
+  background-color: #1c1917;
+  border-radius: 10px;
+}
+
+.midpointdate1-track {
+  position: relative;
+  height: 6px;
+  background-color: #57534e;
+  border-radius: 999px;
+  margin: 10px 8px 16px;
+}
+
+.midpointdate1-point {
+  position: absolute;
+  top: -5px;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  border-radius: 50%;
+}
+
+.midpointdate1-point-start {
+  left: 0%;
+  background-color: #d6d3d1;
+}
+
+.midpointdate1-point-mid {
+  left: 50%;
+  background-color: #facc15;
+  border: 2px solid #ffffff;
+}
+
+.midpointdate1-point-end {
+  left: 100%;
+  background-color: #d6d3d1;
+}
+
+.midpointdate1-timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.midpointdate1-timeline-labels span {
+  display: block;
+  color: #a8a29e;
+}
+
+.midpointdate1-mid-label {
+  text-align: center;
+  color: #fde047;
+}
+
+.midpointdate1-end-label {
+  text-align: right;
+}
+
+.midpointdate1-quarters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.midpointdate1-q-item {
+  background-color: #1c1917;
+  border: 1px solid #44403c;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.midpointdate1-q-item span {
+  font-size: 11px;
+  color: #a8a29e;
+  text-transform: uppercase;
+}
+
+.midpointdate1-q-active {
+  border-color: #facc15;
+}
+
+.midpointdate1-guide,
+.midpointdate1-faq {
+  background-color: #292524;
+  border: 1px solid #57534e;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.midpointdate1-faq {
+  margin-bottom: 0;
+}
+
+.midpointdate1-h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #fef08a;
+}
+
+.midpointdate1-p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #e7e5e4;
+}
+
+.midpointdate1-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.midpointdate1-faq-item {
+  border: 1px solid #57534e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.midpointdate1-faq-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fafaf9;
+  background-color: #1c1917;
+  border: none;
+  cursor: pointer;
+}
+
+.midpointdate1-faq-body {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e7e5e4;
+  background-color: #292524;
+}
+
+@media (max-width: 768px) {
+  .midpointdate1-inputs,
+  .midpointdate1-quarters {
+    grid-template-columns: 1fr;
+  }
+}

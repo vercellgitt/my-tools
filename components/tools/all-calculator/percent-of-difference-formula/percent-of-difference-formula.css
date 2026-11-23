@@ -1,0 +1,246 @@
+.diffformula1-root {
+  width: 100%;
+  max-width: 100%;
+  color: #14532d;
+}
+
+.diffformula1-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  background-color: #ffffff;
+  border: 1px solid #bbf7d0;
+  border-radius: 14px;
+}
+
+.diffformula1-banner {
+  border-left: 5px solid #16a34a;
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+.diffformula1-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #15803d;
+  background-color: #dcfce7;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+
+.diffformula1-h1 {
+  margin: 0 0 6px;
+  font-size: 27px;
+  line-height: 1.2;
+  color: #14532d;
+}
+
+.diffformula1-sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #374151;
+}
+
+.diffformula1-formula-strip {
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #14532d;
+  margin-bottom: 18px;
+}
+
+.diffformula1-workspace {
+  background-color: #fafffb;
+  border: 1px solid #dcfce7;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.diffformula1-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.diffformula1-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 6px;
+}
+
+.diffformula1-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #14532d;
+  background-color: #ffffff;
+  border: 1px solid #4ade80;
+  border-radius: 8px;
+}
+
+.diffformula1-alert {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #991b1b;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+}
+
+.diffformula1-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.diffformula1-btn-primary {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #15803d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.diffformula1-btn-primary:hover:not(:disabled) {
+  background-color: #166534;
+}
+
+.diffformula1-btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.diffformula1-btn-reset {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #15803d;
+  background-color: #ffffff;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.diffformula1-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.diffformula1-metric-card {
+  background-color: #ffffff;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.diffformula1-metric-highlight {
+  background-color: #15803d;
+  border-color: #15803d;
+  color: #ffffff;
+}
+
+.diffformula1-metric-label {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.diffformula1-metric-val {
+  font-size: 22px;
+  word-break: break-word;
+}
+
+.diffformula1-article,
+.diffformula1-faq {
+  background-color: #ffffff;
+  border: 1px solid #dcfce7;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.diffformula1-faq {
+  margin-bottom: 0;
+}
+
+.diffformula1-h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #14532d;
+}
+
+.diffformula1-p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #374151;
+}
+
+.diffformula1-example {
+  background-color: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.diffformula1-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.diffformula1-faq-item {
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.diffformula1-faq-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #14532d;
+  background-color: #f0fdf4;
+  border: none;
+  cursor: pointer;
+}
+
+.diffformula1-faq-ans {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .diffformula1-inputs,
+  .diffformula1-metrics {
+    grid-template-columns: 1fr;
+  }
+}

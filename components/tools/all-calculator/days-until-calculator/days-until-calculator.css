@@ -1,0 +1,218 @@
+.daysuntilWrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  background-color: #060d1f;
+  color: #f8fafc;
+  border-radius: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.daysuntilHero {
+  background: linear-gradient(135deg, #0b1936 0%, #0f295a 60%, #0369a1 100%);
+  border: 1px solid #1e3a8a;
+  border-radius: 16px;
+  padding: 26px 24px;
+  margin-bottom: 22px;
+}
+
+.daysuntilHeading {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.daysuntilIntro {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #bae6fd;
+}
+
+.daysuntilPresets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.daysuntilPresetBtn {
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid #22d3ee;
+  background-color: #0c1d3d;
+  color: #67e8f9;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.daysuntilPresetBtn:hover {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+}
+
+.daysuntilControls {
+  background-color: #0c1933;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.daysuntilGridInputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.daysuntilLabel {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7dd3fc;
+  margin-bottom: 6px;
+}
+
+.daysuntilInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background-color: #112240;
+  color: #ffffff;
+  font-size: 0.96rem;
+}
+
+.daysuntilInput:focus {
+  outline: none;
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+}
+
+.daysuntilStatusBanner {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: #0f294a;
+  border-left: 4px solid #22d3ee;
+  color: #e0f2fe;
+  font-size: 0.94rem;
+}
+
+.daysuntilPastBanner {
+  border-left-color: #38bdf8;
+  background-color: #1e1b4b;
+  color: #e0e7ff;
+}
+
+.daysuntilActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.daysuntilPrimaryBtn {
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.daysuntilPrimaryBtn:hover {
+  background-color: #0369a1;
+}
+
+.daysuntilSecondaryBtn {
+  background-color: transparent;
+  color: #67e8f9;
+  border: 1px solid #22d3ee;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.daysuntilCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.daysuntilStatCard {
+  background: linear-gradient(180deg, #0f2244 0%, #09152b 100%);
+  border: 1px solid #1d4ed8;
+  border-radius: 16px;
+  padding: 20px 14px;
+  text-align: center;
+}
+
+.daysuntilStatNum {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #22d3ee;
+  line-height: 1.1;
+}
+
+.daysuntilStatUnit {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.daysuntilFaqSection {
+  margin-top: 16px;
+}
+
+.daysuntilFaqHeading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.daysuntilFaqItem {
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background-color: #0c1933;
+  overflow: hidden;
+}
+
+.daysuntilFaqBtn {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #0f2244;
+  color: #ffffff;
+  border: none;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.daysuntilFaqAnswer {
+  padding: 14px 16px;
+  line-height: 1.65;
+  color: #cbd5e1;
+  border-top: 1px solid #1e293b;
+}
+
+@media (max-width: 720px) {
+  .daysuntilCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

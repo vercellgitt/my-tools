@@ -1,0 +1,356 @@
+.femalebmi1-root {
+  width: 100%;
+  max-width: 100%;
+  color: #3b1434;
+}
+
+.femalebmi1-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  background: linear-gradient(145deg, #fff1f5 0%, #fce7f3 50%, #f3e8ff 100%);
+  border: 1px solid #f5d0fe;
+  border-radius: 18px;
+}
+
+.femalebmi1-header {
+  margin-bottom: 20px;
+}
+
+.femalebmi1-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #9d174d;
+  background-color: #fbcfe8;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.femalebmi1-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #500724;
+}
+
+.femalebmi1-subtitle {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #6b21a8;
+}
+
+.femalebmi1-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.femalebmi1-card {
+  background-color: #ffffff;
+  border: 1px solid #f0abfc;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.femalebmi1-output-card {
+  background: linear-gradient(170deg, #831843 0%, #6b21a8 100%);
+  color: #ffffff;
+  border-color: #701a75;
+}
+
+.femalebmi1-toggle-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.femalebmi1-toggle-btn {
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #f9a8d4;
+  background-color: #fdf2f8;
+  color: #831843;
+  cursor: pointer;
+}
+
+.femalebmi1-toggle-active {
+  background-color: #be185d;
+  color: #ffffff;
+  border-color: #be185d;
+}
+
+.femalebmi1-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.femalebmi1-height-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.femalebmi1-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #500724;
+  margin-bottom: 5px;
+}
+
+.femalebmi1-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #3b0726;
+  background-color: #fffafd;
+  border: 1px solid #f472b6;
+  border-radius: 8px;
+}
+
+.femalebmi1-input:focus {
+  outline: 2px solid #a855f7;
+  outline-offset: 1px;
+}
+
+.femalebmi1-error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #9f1239;
+  background-color: #ffe4e6;
+  border: 1px solid #fda4af;
+  border-radius: 8px;
+}
+
+.femalebmi1-actions {
+  margin-top: 14px;
+}
+
+.femalebmi1-reset-btn {
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b21a8;
+  background-color: #f3e8ff;
+  border: 1px solid #d8b4fe;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.femalebmi1-reset-btn:hover {
+  background-color: #e9d5ff;
+}
+
+.femalebmi1-formula-card {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #fdf4ff;
+  border: 1px solid #f5d0fe;
+  border-radius: 10px;
+}
+
+.femalebmi1-formula-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #86198f;
+  margin-bottom: 4px;
+}
+
+.femalebmi1-formula-eq {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b0726;
+}
+
+.femalebmi1-formula-note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #581c87;
+}
+
+.femalebmi1-score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.femalebmi1-score-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fbcfe8;
+}
+
+.femalebmi1-category-pill {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #fdf2f8;
+  color: #831843;
+  border-radius: 999px;
+}
+
+.femalebmi1-score-value {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 8px 0 4px;
+}
+
+.femalebmi1-healthy-range {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: #f5d0fe;
+}
+
+.femalebmi1-scale-wrap {
+  margin-bottom: 14px;
+}
+
+.femalebmi1-scale-bar {
+  position: relative;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f9a8d4 0%, #f472b6 30%, #e879f9 65%, #c084fc 100%);
+  margin-bottom: 6px;
+}
+
+.femalebmi1-marker {
+  position: absolute;
+  top: -4px;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  background-color: #ffffff;
+  border: 3px solid #3b0726;
+  border-radius: 50%;
+}
+
+.femalebmi1-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #fce7f3;
+}
+
+.femalebmi1-interpretation {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #fdf2f8;
+}
+
+.femalebmi1-categories-table {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.femalebmi1-cat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.femalebmi1-cat-row:last-child {
+  border-bottom: none;
+}
+
+.femalebmi1-empty {
+  padding: 24px 0;
+  font-size: 14px;
+  color: #fce7f3;
+}
+
+.femalebmi1-guide,
+.femalebmi1-faq {
+  background-color: #ffffff;
+  border: 1px solid #f0abfc;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.femalebmi1-faq {
+  margin-bottom: 0;
+}
+
+.femalebmi1-guide-title,
+.femalebmi1-faq-title {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #500724;
+}
+
+.femalebmi1-guide-text {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #374151;
+}
+
+.femalebmi1-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.femalebmi1-faq-item {
+  border: 1px solid #f5d0fe;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.femalebmi1-faq-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #500724;
+  background-color: #fdf4ff;
+  border: none;
+  cursor: pointer;
+}
+
+.femalebmi1-faq-sign {
+  font-size: 18px;
+  color: #9d174d;
+}
+
+.femalebmi1-faq-body {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .femalebmi1-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .femalebmi1-title {
+    font-size: 24px;
+  }
+}

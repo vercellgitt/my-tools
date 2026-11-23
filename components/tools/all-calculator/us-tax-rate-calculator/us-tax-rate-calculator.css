@@ -1,0 +1,22 @@
+.us-tax-rate-calculator-theme { --accent:#1d4ed8; }
+.ltc-shell{max-width:920px;margin:0 auto;padding:24px 16px 56px;color:#172033;background:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+.ltc-hero{padding:28px 24px;border-radius:20px;background:linear-gradient(135deg,#f5f8ff,#fff);border:1px solid #e4eaf3}
+.ltc-eyebrow,.ltc-year{color:var(--accent);font-weight:700;font-size:13px}
+.ltc-hero h1{margin:10px 0;font-size:clamp(28px,5vw,40px);line-height:1.15;color:#15213a}
+.ltc-hero p{margin:0 0 12px;color:#526078}
+.ltc-card{margin-top:20px;padding:24px;border:1px solid #e2e8f0;border-radius:18px;box-shadow:0 8px 28px rgba(20,35,60,.06)}
+.ltc-card h2,.ltc-info h2,.ltc-faq h2{margin:0 0 16px;font-size:23px}
+.ltc-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.ltc-form label{display:flex;flex-direction:column;gap:7px;font-weight:650;font-size:14px}
+.ltc-form input,.ltc-form select{width:100%;min-height:46px;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:#172033;font:inherit}
+.ltc-form input:focus,.ltc-form select:focus{outline:2px solid var(--accent);outline-offset:2px}
+.ltc-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
+.ltc-results>div{padding:14px;border-radius:12px;background:#f4f7fb;display:flex;flex-direction:column;gap:4px}
+.ltc-results small{color:#5d6b82;font-size:12px} .ltc-results strong{color:#172033;font-size:20px;overflow-wrap:anywhere}
+.ltc-results .ltc-net{background:var(--accent)} .ltc-results .ltc-net small,.ltc-results .ltc-net strong{color:#fff}
+.ltc-note{margin:18px 0 0;padding:12px 14px;border-left:4px solid var(--accent);background:#fafbfe;color:#596579;font-size:13px}
+.ltc-info,.ltc-faq{margin-top:28px} .ltc-info p,.ltc-faq p{color:#536176}
+.ltc-faq details{border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;margin:10px 0}
+.ltc-faq summary{cursor:pointer;font-weight:700;color:#1c2940}
+.ltc-source{margin-top:26px;font-size:13px;color:#64748b} .ltc-source a{color:var(--accent);font-weight:700}
+@media(max-width:560px){.ltc-shell{padding:14px 10px 40px}.ltc-hero,.ltc-card{padding:19px 15px}.ltc-results{grid-template-columns:repeat(2,minmax(0,1fr))}.ltc-results strong{font-size:17px}}

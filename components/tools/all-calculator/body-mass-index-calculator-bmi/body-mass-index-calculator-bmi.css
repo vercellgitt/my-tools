@@ -1,0 +1,366 @@
+.calculator-bmi1 {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 10px 8px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.calculator-bmi1 *,
+.calculator-bmi1 *::before,
+.calculator-bmi1 *::after {
+  box-sizing: border-box;
+}
+
+.calculator-bmi2 {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.calculator-bmi3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0f2fe;
+}
+
+.calculator-bmi4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 20px;
+}
+
+@media (max-width: 600px) {
+  .calculator-bmi4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calculator-bmi5 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.calculator-bmi6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.calculator-bmi7 {
+  display: flex;
+  gap: 8px;
+}
+
+.calculator-bmi8,
+.calculator-bmi9 {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.calculator-bmi8:focus,
+.calculator-bmi9:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+.calculator-bmi8::placeholder {
+  color: #9ca3af;
+}
+
+.calculator-bmi9 {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8.5L1.5 4h9z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.calculator-bmi10 {
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.calculator-bmi11 {
+  font-size: 0.82rem;
+  color: #dc2626;
+  min-height: 18px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.calculator-bmi12 {
+  opacity: 1;
+}
+
+.calculator-bmi13 {
+  display: none;
+}
+
+.calculator-bmi14 {
+  display: block;
+}
+
+.calculator-bmi15 {
+  text-align: center;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 10px;
+  margin-bottom: 22px;
+  border: 1px solid #bae6fd;
+}
+
+.calculator-bmi16 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0369a1;
+  line-height: 1.1;
+}
+
+.calculator-bmi17 {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.calculator-bmi18 {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.calculator-bmi19 {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.calculator-bmi20 {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.calculator-bmi21 {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.calculator-bmi22 {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+.calculator-bmi23 {
+  background: #fecaca;
+  color: #b91c1c;
+}
+
+.calculator-bmi24 {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.calculator-bmi25 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 500px) {
+  .calculator-bmi25 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calculator-bmi26 {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.calculator-bmi27 {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.calculator-bmi28 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.calculator-bmi29 {
+  margin-top: 8px;
+}
+
+.calculator-bmi30 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.calculator-bmi31 {
+  position: relative;
+  height: 18px;
+  border-radius: 9px;
+  background: linear-gradient(
+    to right,
+    #3b82f6 0%,
+    #3b82f6 18.5%,
+    #22c55e 18.5%,
+    #22c55e 25%,
+    #eab308 25%,
+    #eab308 30%,
+    #f97316 30%,
+    #f97316 35%,
+    #ef4444 35%,
+    #ef4444 40%,
+    #b91c1c 40%,
+    #b91c1c 100%
+  );
+  margin-bottom: 6px;
+}
+
+.calculator-bmi32 {
+  position: absolute;
+  top: -6px;
+  width: 4px;
+  height: 30px;
+  background: #0f172a;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: left 0.35s ease;
+}
+
+.calculator-bmi32::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #0f172a;
+}
+
+.calculator-bmi33 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #6b7280;
+  padding: 0 2px;
+}
+
+.calculator-bmi34 {
+  font-size: 0.88rem;
+  color: #6b7280;
+  margin-top: 18px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 3px solid #94a3b8;
+}
+
+.calculator-bmi35 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 14px;
+  margin-top: 36px;
+  color: #0f172a;
+}
+
+.calculator-bmi36 {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-bottom: 4px;
+  max-width: 720px;
+}
+
+.calculator-bmi37 {
+  margin-top: 36px;
+}
+
+.calculator-bmi38 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  margin-bottom: 18px;
+}
+
+.calculator-bmi39 {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.calculator-bmi40 {
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  background: #f8fafc;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s;
+}
+
+.calculator-bmi40:hover {
+  background: #f1f5f9;
+}
+
+.calculator-bmi41 {
+  font-size: 1.1rem;
+  color: #64748b;
+  transition: transform 0.25s;
+  flex-shrink: 0;
+}
+
+.calculator-bmi42 .calculator-bmi41 {
+  transform: rotate(180deg);
+}
+
+.calculator-bmi43 {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.calculator-bmi44 {
+  padding: 0 18px 16px;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}

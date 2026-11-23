@@ -1,0 +1,264 @@
+.pregnancydueContainer {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  background-color: #ffffff;
+  color: #3b0764;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.pregnancydueHeader {
+  background: linear-gradient(135deg, #7e22ce 0%, #c084fc 52%, #f472b6 100%);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 28px 24px;
+  margin-bottom: 22px;
+  box-shadow: 0 10px 24px rgba(126, 34, 206, 0.16);
+}
+
+.pregnancydueTitle {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pregnancydueIntro {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #fdf2f8;
+}
+
+.pregnancydueModeTabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.pregnancydueTab {
+  padding: 12px 10px;
+  border-radius: 12px;
+  border: 1.5px solid #e9d5ff;
+  background-color: #faf5ff;
+  color: #581c87;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.pregnancydueTabActive {
+  background-color: #9333ea;
+  border-color: #9333ea;
+  color: #ffffff;
+}
+
+.pregnancydueFormPanel {
+  background-color: #fdf4ff;
+  border: 1.5px solid #f5d0fe;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.pregnancydueSectionTitle {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6b21a8;
+}
+
+.pregnancydueGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.pregnancydueLabel {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #581c87;
+  margin-bottom: 6px;
+}
+
+.pregnancydueInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #d8b4fe;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #3b0764;
+  font-size: 0.96rem;
+}
+
+.pregnancydueNotice {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background-color: #fce7f3;
+  border-left: 4px solid #ec4899;
+  color: #831843;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.pregnancydueError {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background-color: #ffe4e6;
+  border: 1px solid #fda4af;
+  color: #9f1239;
+  font-weight: 600;
+}
+
+.pregnancydueActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pregnancyduePrimaryBtn {
+  background-color: #9333ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pregnancydueSecondaryBtn {
+  background-color: #ffffff;
+  color: #6b21a8;
+  border: 1.5px solid #c084fc;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pregnancydueSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.pregnancydueStat {
+  background-color: #ffffff;
+  border: 1.5px solid #e9d5ff;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.pregnancydueStatLabel {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9333ea;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.pregnancydueStatVal {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #3b0764;
+}
+
+.pregnancydueTrimesterBox {
+  background-color: #faf5ff;
+  border: 1px solid #d8b4fe;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 22px;
+}
+
+.pregnancydueTriBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pregnancydueTriSeg {
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #f3e8ff;
+  border: 1px solid #d8b4fe;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pregnancydueTriActive {
+  background-color: #ec4899;
+  border-color: #db2777;
+  color: #ffffff;
+}
+
+.pregnancydueMilestonesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.pregnancydueMilestoneCard {
+  background-color: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.pregnancydueFaqWrap {
+  margin-top: 24px;
+}
+
+.pregnancydueFaqHeading {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #6b21a8;
+  margin: 0 0 12px;
+}
+
+.pregnancydueFaqItem {
+  border: 1px solid #e9d5ff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.pregnancydueFaqBtn {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #faf5ff;
+  color: #581c87;
+  border: none;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pregnancydueFaqAnswer {
+  padding: 14px 16px;
+  line-height: 1.65;
+  color: #3b0764;
+  border-top: 1px solid #f3e8ff;
+}
+
+@media (max-width: 780px) {
+  .pregnancydueModeTabs,
+  .pregnancydueTriBar {
+    grid-template-columns: 1fr;
+  }
+}
