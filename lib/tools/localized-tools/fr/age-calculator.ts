@@ -1,0 +1,45 @@
+
+import { frAgeCalculatorFaqs } from "@/components/localized-tools/fr/age-calculator/faq";
+
+export const frAgeCalculator = {
+  slug: "calculatrice-age",
+  title: "Calculatrice âge",
+  description: "Utilisez notre calculatrice âge pour calculer l’âge avec date de naissance en années, mois et jours. Découvrez votre âge exact et votre prochain anniversaire.",
+  isFree: true,
+  seoConfig: {
+    metaTitle: "Calculatrice âge – Calcul d’âge précis en ligne gratuit",
+    metaDescription: "Utilisez notre calculatrice âge pour calculer l’âge avec date de naissance en années, mois et jours. Découvrez votre âge exact et votre prochain anniversaire.",
+    keywords: [
+      "calculatrice age",
+      "calculatrice âge",
+      "calcul âge",
+      "calculateur d âge",
+      "calculatrice d âge",
+      "calcul d age",
+      "calcul d âge",
+      "calcul l age",
+      "calculateur d age",
+      "calculateur de date de naissance",
+      "calculatrice date de naissance",
+      "calculer age avec date de naissance",
+      "calculer l age",
+      "calculer lage",
+      "calculer une date de naissance",
+      "simulateur age",
+      "simulateur d age",
+      "calculer âge à une date",
+      "calculer un age",
+      "calculer son age",
+      "calculer son âge",
+      "calculer l âge d une personne",
+      "calcul mon age",
+      "calcul de l age",
+      "calcul age date de naissance",
+      "age avec date de naissance",
+      "Age Calculator"
+    ],
+    h1Title: "Calculateur d’âge – Calculez votre âge en années, mois et jours",
+    faqs: frAgeCalculatorFaqs,
+  },
+  load: () => import("@/components/localized-tools/fr/age-calculator"),
+};

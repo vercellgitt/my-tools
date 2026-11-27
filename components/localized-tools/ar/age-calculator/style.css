@@ -1,0 +1,577 @@
+
+.calculator-agee1 {
+  width: 100%;
+  padding: 22px 14px 40px;
+  background: #ffffff;
+  color: #111827;
+  font-family: Arial, Tahoma, sans-serif;
+  line-height: 1.7;
+}
+
+.calculator-agee2 {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.calculator-agee3 {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.07);
+}
+
+.calculator-agee4 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.calculator-agee5 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calculator-agee5 label {
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.calculator-agee5 input {
+  width: 100%;
+  min-height: 49px;
+  padding: 10px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calculator-agee5 input:hover {
+  border-color: #94a3b8;
+}
+
+.calculator-agee5 input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.calculator-agee-hint {
+  margin: 0;
+  padding: 17px 22px;
+  color: #475569;
+  font-size: 14px;
+  text-align: center;
+}
+
+.calculator-agee-error {
+  margin: 16px 22px 0;
+  padding: 11px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+.calculator-agee-result {
+  padding: 24px;
+  animation: calculator-agee-appear 0.35s ease both;
+}
+
+.calculator-agee-live {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #15803d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.calculator-agee-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+  animation: calculator-agee-pulse 1.5s infinite;
+}
+
+.calculator-agee-result-title {
+  margin: 0 0 17px;
+  color: #111827;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.calculator-agee-age-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+  margin-bottom: 26px;
+}
+
+.calculator-agee-age-box {
+  display: flex;
+  min-height: 120px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #f8fbff, #eff6ff);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calculator-agee-age-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+}
+
+.calculator-agee-age-box strong {
+  color: #1d4ed8;
+  font-size: clamp(30px, 5vw, 43px);
+  font-weight: 850;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.calculator-agee-age-box span {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.calculator-agee-section-title {
+  margin: 0 0 13px;
+  color: #111827;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.calculator-agee-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.calculator-agee-info-card {
+  display: flex;
+  min-width: 0;
+  min-height: 78px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+  background: #ffffff;
+}
+
+.calculator-agee-info-card span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.calculator-agee-info-card strong {
+  overflow-wrap: anywhere;
+  color: #111827;
+  font-size: 16px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.calculator-agee-birthday {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  background: #eff6ff;
+}
+
+.calculator-agee-birthday h3 {
+  margin: 0 0 15px;
+  color: #1e3a8a;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.calculator-agee-count-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calculator-agee-count-box {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 13px 5px;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.calculator-agee-count-box strong {
+  color: #1d4ed8;
+  font-size: 23px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.calculator-agee-count-box span {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.calculator-agee-progress-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 20px 0 8px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.calculator-agee-progress {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #dbeafe;
+}
+
+.calculator-agee-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #2563eb;
+  transition: width 0.4s ease;
+}
+
+.calculator-agee-dates {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.calculator-agee-dates p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.calculator-agee-dates span {
+  color: #64748b;
+}
+
+.calculator-agee-dates strong {
+  color: #111827;
+}
+
+.calculator-agee-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.calculator-agee-actions button {
+  min-height: 43px;
+  padding: 9px 17px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #f1f5f9;
+  color: #1f2937;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.calculator-agee-actions button:hover {
+  transform: translateY(-1px);
+  background: #e2e8f0;
+}
+
+.calculator-agee-actions .calculator-agee-reset {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.calculator-agee-actions .calculator-agee-reset:hover {
+  background: #fee2e2;
+}
+
+.calculator-agee-message {
+  margin: 12px 0 0;
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.calculator-agee-article {
+  width: 100%;
+  max-width: 900px;
+  margin: 38px auto 0;
+  color: #1f2937;
+}
+
+.calculator-agee-article h1 {
+  margin: 0 0 14px;
+  color: #111827;
+  font-size: clamp(23px, 4vw, 31px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.calculator-agee-article h2 {
+  margin: 27px 0 10px;
+  color: #111827;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.calculator-agee-article > p {
+  margin: 0 0 15px;
+  color: #374151;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.calculator-agee-faq {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.calculator-agee-faq-item {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+  background: #ffffff;
+}
+
+.calculator-agee-faq-question {
+  display: flex;
+  width: 100%;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px 17px;
+  border: 0;
+  background: #ffffff;
+  color: #111827;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: right;
+  cursor: pointer;
+}
+
+.calculator-agee-faq-question:hover {
+  background: #f8fafc;
+}
+
+.calculator-agee-faq-question span:last-child {
+  flex: 0 0 auto;
+  color: #2563eb;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.calculator-agee-faq-answer {
+  padding: 0 17px 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.calculator-agee-faq-answer p {
+  margin: 12px 0 0;
+  color: #374151;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.calculator-agee-disclaimer {
+  margin-top: 24px !important;
+  padding: 14px 16px;
+  border-right: 3px solid #2563eb;
+  border-radius: 5px;
+  background: #f8fafc;
+  color: #475569 !important;
+  font-size: 13px !important;
+}
+
+@keyframes calculator-agee-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes calculator-agee-pulse {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 700px) {
+  .calculator-agee-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .calculator-agee4 {
+    gap: 13px;
+    padding: 18px;
+  }
+
+  .calculator-agee-result {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .calculator-agee1 {
+    padding: 12px 8px 30px;
+  }
+
+  .calculator-agee3 {
+    border-radius: 13px;
+  }
+
+  .calculator-agee4 {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .calculator-agee-age-grid {
+    gap: 7px;
+  }
+
+  .calculator-agee-age-box {
+    min-height: 100px;
+    border-radius: 10px;
+  }
+
+  .calculator-agee-age-box strong {
+    font-size: 30px;
+  }
+
+  .calculator-agee-age-box span {
+    font-size: 11px;
+  }
+
+  .calculator-agee-info-grid {
+    gap: 8px;
+  }
+
+  .calculator-agee-info-card {
+    min-height: 72px;
+    padding: 10px;
+  }
+
+  .calculator-agee-info-card strong {
+    font-size: 14px;
+  }
+
+  .calculator-agee-birthday {
+    padding: 13px;
+  }
+
+  .calculator-agee-count-grid {
+    gap: 5px;
+  }
+
+  .calculator-agee-count-box {
+    padding: 10px 3px;
+  }
+
+  .calculator-agee-count-box strong {
+    font-size: 17px;
+  }
+
+  .calculator-agee-count-box span {
+    font-size: 9px;
+  }
+
+  .calculator-agee-actions button {
+    flex: 1 1 calc(50% - 9px);
+    padding: 9px 8px;
+  }
+
+  .calculator-agee-article h2 {
+    font-size: 18px;
+  }
+
+  .calculator-agee-article > p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 350px) {
+  .calculator-agee-age-box strong {
+    font-size: 25px;
+  }
+
+  .calculator-agee-count-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .calculator-agee-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .calculator-agee1 {
+    padding: 0;
+  }
+
+  .calculator-agee4,
+  .calculator-agee-actions,
+  .calculator-agee-article {
+    display: none !important;
+  }
+
+  .calculator-agee3 {
+    border: 0;
+    box-shadow: none;
+  }
+
+  .calculator-agee-result {
+    padding: 0;
+  }
+}

@@ -1,0 +1,37 @@
+/* Article Internal & External Links */
+
+.maintenance-1 {
+  color: #040441;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.maintenance-1 > p {
+  margin: 8px 0;
+  padding: 0;
+}
+
+.maintenance-1 > p:first-child {
+  font-size: 1.05rem;
+  color: #01010c;
+}
+
+.maintenance-1 > p:nth-child(2) {
+  margin: 0;
+}
+
+.maintenance-1 a {
+  display: block;
+  color: #2563eb !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.maintenance-1 a:hover {
+  color: #7c3aed !important;
+  text-decoration: underline !important;
+}

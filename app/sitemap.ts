@@ -1,11 +1,18 @@
-import type { MetadataRoute } from "next";
-import { tools } from "@/lib/tools";
 
-// এই লাইনটি যোগ করতে হবে:
+import type { MetadataRoute } from "next";
+
+import { toolsRegistry } from "@/lib/tools";
+import { germanToolsRegistry } from "@/lib/tools/de";
+import { frenchToolsRegistry } from "@/lib/tools/fr";
+import { spanishToolsRegistry } from "@/lib/tools/es";
+import { arabicToolsRegistry } from "@/lib/tools/ar";
+
 export const dynamic = "force-static";
 
+const BASE_URL = "https://liebess.com";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://liebess.com";
+  const now = new Date();
 
   const staticRoutes = [
     "",
@@ -15,15 +22,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms-and-conditions",
   ];
 
-  return [
-    ...staticRoutes.map((route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: new Date(),
-    })),
+  const englishUrls = staticRoutes.map((route) => ({
+    url: `${BASE_URL}${route}`,
+    lastModified: now,
+  }));
 
-    ...tools.map((tool) => ({
-      url: `${baseUrl}/${tool.slug}`,
-      lastModified: new Date(),
-    })),
+  const createLanguageUrls = (
+    locale: string,
+    registry: Record<string, unknown>
+  ) =>
+    Object.keys(registry).map((slug) => ({
+      url: `${BASE_URL}/${locale}/${slug}`,
+      lastModified: now,
+    }));
+
+  const englishToolUrls = Object.keys(toolsRegistry).map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
+    lastModified: now,
+  }));
+
+  return [
+    ...englishUrls,
+    ...englishToolUrls,
+    ...createLanguageUrls("de", germanToolsRegistry),
+    ...createLanguageUrls("fr", frenchToolsRegistry),
+    ...createLanguageUrls("es", spanishToolsRegistry),
+    ...createLanguageUrls("ar", arabicToolsRegistry),
   ];
 }
